@@ -98,7 +98,6 @@ replace({
 })
 
 // rename react-native-library
-
 const allFiles = []
 for (const file of walk(path.resolve(__dirname, '..'))) {
   allFiles.push(file)
