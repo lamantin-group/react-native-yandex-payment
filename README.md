@@ -8,6 +8,7 @@ Roadmap
 
 - [x] eslint
 - [x] working example folder
+- [ ] hot reloading for example (now working only reloading)
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
