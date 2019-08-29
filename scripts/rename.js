@@ -1,5 +1,6 @@
 const bundle = 'group.lamantin.library'
 const libraryName = 'CustomNativeStuff'
+const replace = require('./lib/replace-in-file')
 
 String.prototype.replaceAll = function(search, replacement) {
   const target = this
@@ -57,11 +58,21 @@ const androidSrcFolder = 'android/src/main/java/ru/whalemare/rn/library'
 const androidSrcNewFoled = `android/src/main/java/${bundle.replaceAll(/\./g, '/')}/`
 createDir(androidSrcNewFoled)
 const androidFiles = fs.readdirSync(androidSrcFolder)
+
+const files = []
 androidFiles.forEach(fileName => {
   const from = `${androidSrcFolder}/${fileName}`
   const to = `${androidSrcNewFoled}${fileName}`
+  files.push(to)
   move(from, to)
 })
+
+const options = {
+  files: files,
+  from: 'ru.whalemare.rn.library',
+  to: bundle,
+}
+replace(options)
 
 // console.log(bundle.replaceAll(/\./g, '/'))
 
