@@ -51,5 +51,6 @@ Roadmap
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
-- [ ] rename library possibility
+- [x] rename js library possibility
+- [ ] rename native library possibility
 - [ ] fix local.properties to work on independent environment
