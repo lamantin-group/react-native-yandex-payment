@@ -8,8 +8,8 @@ Roadmap
 
 - [x] eslint
 - [x] working example folder
-- [ ] hot reloading for example (now working only reloading)
+- [x] hot library replacement in development 
+- [ ] hot reloading for example (working only reloading)
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
-- [ ] hot library replacement in development (for now you should execute `./development.sh` script for apply changes in your library) 
