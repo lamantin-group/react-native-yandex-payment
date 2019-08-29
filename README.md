@@ -13,3 +13,4 @@ Roadmap
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
+- [ ] rename library possibility
