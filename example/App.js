@@ -58,6 +58,7 @@ const App = () => {
               height: 100,
               backgroundColor: '#f4f4f4',
               alignItems: 'center',
+              marginTop: 24,
             }}
             onPress={async () => {
               Alert.alert('Warning', JSON.stringify(await NativeLibrary.getValue()))
