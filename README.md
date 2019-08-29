@@ -13,7 +13,12 @@ git clone https://github.com/whalemare/react-native-library.git react-native-lib
 
 Move into cloned folder
 ```bash
-cd reat-native-library-name
+cd react-native-library-name
+```
+
+Check that sample started correctly
+```bash
+npm run start:first
 ```
 
 Reset git repository
