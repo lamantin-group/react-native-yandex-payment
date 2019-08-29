@@ -1,13 +1,13 @@
 const bundle = 'group.lamantin.library'
 const libraryName = 'CustomNativeStuff'
-const replace = require('./lib/replace-in-file')
+const path = require('path')
 
-String.prototype.replaceAll = function(search, replacement) {
-  const target = this
+function replaceAllInString(target, search, replacement) {
   return target.replace(new RegExp(search, 'g'), replacement)
 }
 
 const fs = require('fs')
+const replace = require('./lib/replace-in-file')
 
 function createDir(path, split = '/') {
   const splitted = path.split(split)
@@ -53,20 +53,43 @@ function move(oldPath, newPath, callback) {
   }
 }
 
+/**
+ * List all files in a directory recursively in a synchronous fashion
+ *
+ * @param {String} dir
+ * @returns {IterableIterator<String>}
+ */
+function* walk(dir) {
+  const files = fs.readdirSync(dir)
+
+  for (const file of files) {
+    const pathToFile = path.join(dir, file)
+    const isDirectory = fs.statSync(pathToFile).isDirectory()
+    if (isDirectory) {
+      yield* walk(pathToFile)
+    } else {
+      yield pathToFile
+    }
+  }
+}
+
 // rename android specific
 const androidSrcFolder = 'android/src/main/java/ru/whalemare/rn/library'
-const androidSrcNewFoled = `android/src/main/java/${bundle.replaceAll(/\./g, '/')}/`
+const androidSrcNewFoled = `android/src/main/java/${replaceAllInString(bundle, /\./g, '/')}/`
 createDir(androidSrcNewFoled)
 const androidFiles = fs.readdirSync(androidSrcFolder)
 
-const files = []
 androidFiles.forEach(fileName => {
   const from = `${androidSrcFolder}/${fileName}`
   const to = `${androidSrcNewFoled}${fileName}`
-  files.push(to)
   move(from, to)
 })
 
+const absolutePath = path.resolve(__dirname, '../android')
+const files = []
+for (const file of walk(absolutePath)) {
+  files.push(file)
+}
 const options = {
   files: files,
   from: 'ru.whalemare.rn.library',
