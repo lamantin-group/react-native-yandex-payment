@@ -1,18 +1,17 @@
+import { NativeModules } from 'react-native'
 
-import { NativeModules } from 'react-native';
-
-const { NativeLibrary } = NativeModules;
+const { NativeLibrary } = NativeModules
 
 export default class MyLibrary {
-  async static getValue() {
+  static async getValue() {
     const result = await NativeLibrary.getValue()
-    console.log("getValue = ", result)
+    console.log('getValue = ', result)
     return result
   }
 
-  async static getParams() {
+  static async getParams() {
     const result = await NativeLibrary.getParams()
-    console.log("getParams = ", result)
+    console.log('getParams = ', result)
     return result
   }
 }

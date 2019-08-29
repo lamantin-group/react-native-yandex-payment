@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment} from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,7 +14,9 @@ import {
   View,
   Text,
   StatusBar,
-} from 'react-native';
+  TouchableOpacity,
+  Alert,
+} from 'react-native'
 
 import {
   Header,
@@ -22,13 +24,13 @@ import {
   Colors,
   DebugInstructions,
   ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+} from 'react-native/Libraries/NewAppScreen'
 
-import NativeLibrary from 'react-native-library'
+import NativeLibrary from 'react-native-library';
 
 const App = () => {
   return (
-    <Fragment>
+    <View>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -40,16 +42,40 @@ const App = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
-          
-          <TouchableOpacity onPress={() => {
-            NativeLibrary.getValue()
-          }}>
+
+          <TouchableOpacity
+            style={{
+              height: 100,
+              backgroundColor: '#f4f4f4',
+              alignItems: 'center',
+            }}
+            onPress={async () => {
+              Alert.alert(
+                'Warning',
+                JSON.stringify(await NativeLibrary.getParams()),
+              )
+            }}>
+            <Text>getParams</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              height: 100,
+              backgroundColor: '#f4f4f4',
+              alignItems: 'center',
+            }}
+            onPress={async () => {
+              Alert.alert(
+                'Warning',
+                JSON.stringify(await NativeLibrary.getValue()),
+              )
+            }}>
             <Text>getValue</Text>
           </TouchableOpacity>
         </ScrollView>
       </SafeAreaView>
-    </Fragment>
-  );
+    </View>
+  )
 };
 
 const styles = StyleSheet.create({
@@ -89,6 +115,6 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
-});
+})
 
-export default App;
+export default App
