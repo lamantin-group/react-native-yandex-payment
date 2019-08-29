@@ -5,12 +5,17 @@
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "developing:link:w": "wml add ./../ ./node_modules/react-native-library",
+    "developing:start:w": "wml start",
+    "developing:stop:w": "wml stop",
+    "developing:link": "cp -rf ./../ ./node_modules/react-native-library",
+    "developing:start": "wml start",
+    "developing:stop": "wml stop"
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.5",
-    "react-native-library": "./../"
+    "react-native": "0.60.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
