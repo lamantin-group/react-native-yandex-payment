@@ -22,44 +22,53 @@ function createDir(path, split = '/') {
   }, '')
 }
 
-// rename android specific
-createDir(`android/src/main/java/${bundle.replaceAll(/\./g, '/')}/`)
+function move(oldPath, newPath, callback) {
+  console.log('move from ', oldPath, '; to ', newPath)
 
+  fs.rename(oldPath, newPath, function(err) {
+    if (err) {
+      if (err.code === 'EXDEV') {
+        copy()
+      } else {
+        callback(err)
+      }
+      return
+    }
+    callback()
+  })
+
+  function copy() {
+    const readStream = fs.createReadStream(oldPath)
+    const writeStream = fs.createWriteStream(newPath)
+
+    readStream.on('error', callback)
+    writeStream.on('error', callback)
+
+    readStream.on('close', function() {
+      fs.unlink(oldPath, callback)
+    })
+
+    readStream.pipe(writeStream)
+  }
+}
+
+// rename android specific
+const androidSrcFolder = 'android/src/main/java/ru/whalemare/rn/library'
+const androidSrcNewFoled = `android/src/main/java/${bundle.replaceAll(/\./g, '/')}/`
+createDir(androidSrcNewFoled)
+const androidFiles = fs.readdirSync(androidSrcFolder)
+androidFiles.forEach(fileName => {
+  const from = `${androidSrcFolder}/${fileName}`
+  const to = `${androidSrcNewFoled}${fileName}`
+  move(from, to)
+})
 
 // console.log(bundle.replaceAll(/\./g, '/'))
-
-// function move(oldPath, newPath, callback) {
-//   fs.rename(oldPath, newPath, function(err) {
-//     if (err) {
-//       if (err.code === 'EXDEV') {
-//         copy()
-//       } else {
-//         callback(err)
-//       }
-//       return
-//     }
-//     callback()
-//   })
-
-//   function copy() {
-//     let readStream = fs.createReadStream(oldPath)
-//     let writeStream = fs.createWriteStream(newPath)
-
-//     readStream.on('error', callback)
-//     writeStream.on('error', callback)
-
-//     readStream.on('close', function() {
-//       fs.unlink(oldPath, callback)
-//     })
-
-//     readStream.pipe(writeStream)
-//   }
-// }
 
 // const androidPath = 'android/src/main/java'
 // const bundlePath = bundle.replaceAll(/\./g, '/')
 // createDir(`${androidPath}/${bundlePath}`)
-// const androidFiles = fs.readdirSync('android/src/main/java/ru/whalemare/rn/library')
+// const androidFiles =
 // console.log(androidFiles)
 
 // move('android/src/main/java/ru/whalemare/rn/library/LibraryPackage.java', `android/src/main/java/${bundlePath}/LibraryPackage.java`, (error) => {
