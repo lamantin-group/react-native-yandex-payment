@@ -40,8 +40,11 @@ Roadmap
 - [x] eslint
 - [x] working example folder
 - [x] hot library replacement in development 
+- [x] kotlin support for library android module
+- [ ] swift support for library ios module
 - [ ] hot reloading for example (working only reloading)
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
 - [ ] rename library possibility
+- [ ] fix local.properties to work on independent environment
