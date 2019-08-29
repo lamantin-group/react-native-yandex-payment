@@ -3,6 +3,24 @@ What is it
 
 Bootstrap template for create libraries in React Native environment
 
+How to use it
+-------------
+
+Clone repository in development folder (it is created automatically)
+```bash
+git clone https://github.com/whalemare/react-native-library.git react-native-library-name
+```
+
+Move into cloned folder
+```bash
+cd reat-native-library-name
+```
+
+Reset git repository
+```bash
+npm run git:reset
+```
+
 Roadmap
 --------
 

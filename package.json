@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reset:git": "rm -rf .git && git init"
+    "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'"
   },
   "keywords": [
     "react-native"
