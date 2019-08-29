@@ -15,6 +15,9 @@
     "react-native": "^0.41.2"
   },
   "devDependencies": {
+    "react": "16.8.6",
+    "react-native": "0.60.4",
+    "typescript": "^3.4.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",

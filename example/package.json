@@ -13,10 +13,13 @@
     "react-native": "0.60.5"
   },
   "devDependencies": {
+    "metro-config": "^0.56.0",
+    "escape-string-regexp": "^2.0.0",
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^6.2.2",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",

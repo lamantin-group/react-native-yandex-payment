@@ -7,7 +7,7 @@ export default class MyLibrary {
   static async getValue() {
     const result = await NativeLibrary.getValue()
     console.log('getValue = ', result)
-    return result
+    return `${result}`
   }
 
   static async getParams() {
