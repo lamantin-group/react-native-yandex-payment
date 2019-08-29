@@ -1,5 +1,6 @@
 const bundle = 'group.lamantin.library'
-const libraryName = 'CustomNativeStuff'
+const libraryName = 'react-native-custom-name'
+const libraryNativeName = 'CustomNativeStuff'
 const path = require('path')
 
 function replaceAllInString(target, search, replacement) {
@@ -85,17 +86,28 @@ androidFiles.forEach(fileName => {
   move(from, to)
 })
 
-const absolutePath = path.resolve(__dirname, '../android')
+const absoluteAndroidPath = path.resolve(__dirname, '../android')
 const files = []
-for (const file of walk(absolutePath)) {
+for (const file of walk(absoluteAndroidPath)) {
   files.push(file)
 }
-const options = {
+replace({
   files: files,
   from: 'ru.whalemare.rn.library',
   to: bundle,
+})
+
+// rename react-native-library
+
+const allFiles = []
+for (const file of walk(path.resolve(__dirname, '..'))) {
+  allFiles.push(file)
 }
-replace(options)
+replace({
+  files: allFiles,
+  from: 'react-native-library',
+  to: libraryName,
+})
 
 // console.log(bundle.replaceAll(/\./g, '/'))
 
