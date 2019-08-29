@@ -72,7 +72,8 @@ function* walk(dir) {
   for (const file of files) {
     const pathToFile = path.join(dir, file)
     const isDirectory = fs.statSync(pathToFile).isDirectory()
-    if (isDirectory) {
+    const isNodeModules = pathToFile.includes('node_modules')
+    if (isDirectory && !isNodeModules) {
       yield* walk(pathToFile)
     } else {
       yield pathToFile
