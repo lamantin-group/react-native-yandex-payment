@@ -42,5 +42,5 @@ build/
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
+# *.keystore
       
