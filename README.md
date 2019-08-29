@@ -7,6 +7,7 @@ Roadmap
 --------
 
 - [x] eslint
+- [x] working example folder
 - [ ] TypeScript for library development
 - [ ] ios library module support
 - [x] android library module support
