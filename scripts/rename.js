@@ -24,7 +24,13 @@ function createDir(path, split = '/') {
   }, '')
 }
 
-function move(oldPath, newPath, callback) {
+function move(
+  oldPath,
+  newPath,
+  callback = () => {
+    console.log('moved')
+  }
+) {
   console.log('move from ', oldPath, '; to ', newPath)
 
   fs.rename(oldPath, newPath, function(err) {
