@@ -54,3 +54,4 @@ Roadmap
 - [x] rename js library possibility
 - [ ] rename native library possibility
 - [ ] fix local.properties to work on independent environment
+- [ ] publish to npm
