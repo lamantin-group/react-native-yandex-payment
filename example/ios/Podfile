@@ -27,7 +27,7 @@ target 'example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNReactNativeLibrary', :path => '../node_modules/react-native-library'
+  pod 'NativeLibrary', :path => '../node_modules/react-native-library'
 
   target 'exampleTests' do
     inherit! :search_paths

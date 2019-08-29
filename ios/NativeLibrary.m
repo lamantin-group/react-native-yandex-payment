@@ -1,7 +1,7 @@
 
-#import "RNReactNativeLibrary.h"
+#import "NativeLibrary.h"
 
-@implementation RNReactNativeLibrary
+@implementation NativeLibrary
 
 - (dispatch_queue_t)methodQueue
 {
