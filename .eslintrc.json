@@ -1,6 +1,9 @@
 {
   "plugins": ["prettier"],
   "parser": "babel-eslint",
+  "env": {
+    "jest": true
+  },
   "extends": [
     "airbnb",
     "plugin:import/errors",
@@ -11,7 +14,7 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "warn",
+    "prettier/prettier": ["warn"],
     "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "react/forbid-prop-types": "off",
@@ -29,7 +32,7 @@
     ],
     "no-trailing-spaces": ["warn", { "skipBlankLines": true }],
     "object-shorthand": ["off", "never"],
-    "react/destructuring-assignment": ["warn", "always", { "ignoreClassFields": true }],
+    "react/destructuring-assignment": ["off", "always", { "ignoreClassFields": true }],
     "react/jsx-wrap-multilines": "off",
     "no-return-assign": "off",
     "react/jsx-closing-tag-location": "warn",
@@ -68,4 +71,3 @@
     "no-mixed-operators": "warn"
   }
 }
-

@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -26,16 +26,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 
-import NativeLibrary from 'react-native-library';
+import NativeLibrary from 'react-native-library'
 
 const App = () => {
   return (
     <View>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+        <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
           <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
@@ -50,10 +48,7 @@ const App = () => {
               alignItems: 'center',
             }}
             onPress={async () => {
-              Alert.alert(
-                'Warning',
-                JSON.stringify(await NativeLibrary.getParams()),
-              )
+              Alert.alert('Warning', JSON.stringify(await NativeLibrary.getParams()))
             }}>
             <Text>getParams</Text>
           </TouchableOpacity>
@@ -65,10 +60,7 @@ const App = () => {
               alignItems: 'center',
             }}
             onPress={async () => {
-              Alert.alert(
-                'Warning',
-                JSON.stringify(await NativeLibrary.getValue()),
-              )
+              Alert.alert('Warning', JSON.stringify(await NativeLibrary.getValue()))
             }}>
             <Text>getValue</Text>
           </TouchableOpacity>
@@ -76,7 +68,7 @@ const App = () => {
       </SafeAreaView>
     </View>
   )
-};
+}
 
 const styles = StyleSheet.create({
   scrollView: {
