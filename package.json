@@ -1,7 +1,13 @@
 {
   "name": "react-native-library",
   "version": "1.0.0",
-  "description": "",
+  "author": "whalemare",
+  "description": "Library bootstrap",
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whalemare/react-native-library.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,8 +16,6 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
   "peerDependencies": {
     "react-native": "^0.41.2"
   },
