@@ -50,7 +50,7 @@ Roadmap
 - [x] Autocomplete for library support in example folder
 - [ ] Swift support for library ios module
 - [ ] Hot reloading for example (working only reloading)
-- [ ] TypeScript for library development
+- [x] TypeScript for library development
 - [ ] iOS library module support
 - [x] Android library module support
 - [x] Rename library possibility
