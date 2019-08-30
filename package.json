@@ -14,8 +14,10 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'"
+    "start": "react-native start",
+    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm install && cd example && npm install",
+    "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
+    "android": "cd example && npm run android"
   },
   "peerDependencies": {
     "react-native": "^0.41.2"
