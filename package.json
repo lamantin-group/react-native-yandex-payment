@@ -15,6 +15,7 @@
   "main": "index.js",
   "scripts": {
     "start": "react-native start",
+    "install:deps": "npm install && cd example && npm install",
     "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm install && cd example && npm install",
     "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
     "android": "cd example && npm run android"
