@@ -28,6 +28,18 @@ import {
 
 import MyLibrary from 'react-native-library'
 
+const Button = props => {
+  return (<TouchableOpacity
+    style={{
+      height: 100,
+      backgroundColor: '#f4f4f4',
+      alignItems: 'center',
+    }}
+    onPress={props.onPress}>
+    <Text>{props.text}</Text>
+  </TouchableOpacity>)
+}
+
 const App = () => {
   return (
     <View>
@@ -41,30 +53,26 @@ const App = () => {
             </View>
           )}
 
-          <TouchableOpacity
-            style={{
-              height: 100,
-              backgroundColor: '#f4f4f4',
-              alignItems: 'center',
-            }}
+          <Button 
+            text={"MyLibrary.getParams()"}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getParams()))
-            }}>
-            <Text>getParams</Text>
-          </TouchableOpacity>
+              Alert.alert('Warning', JSON.stringify(await MyLibrary.getParams()));
+            }}
+          />
 
-          <TouchableOpacity
-            style={{
-              height: 100,
-              backgroundColor: '#f4f4f4',
-              alignItems: 'center',
-              marginTop: 24,
-            }}
+          <Button 
+            text={"MyLibrary.getValue()"}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getValue()))
-            }}>
-            <Text>getValue</Text>
-          </TouchableOpacity>
+              Alert.alert('Warning', JSON.stringify(await MyLibrary.getValue()));
+            }}
+          />
+
+          <Button 
+            text={"MyLibrary.putValue(3)"}
+            onPress={async () => {
+              Alert.alert('Warning', JSON.stringify(await MyLibrary.putValue(3)));
+            }}
+          />
         </ScrollView>
       </SafeAreaView>
     </View>
