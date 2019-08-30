@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 
-import NativeLibrary from 'react-native-library'
+import MyLibrary from 'react-native-library'
 
 const App = () => {
   return (
@@ -48,7 +48,7 @@ const App = () => {
               alignItems: 'center',
             }}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await NativeLibrary.getParams()))
+              Alert.alert('Warning', JSON.stringify(await MyLibrary.getParams()))
             }}>
             <Text>getParams</Text>
           </TouchableOpacity>
@@ -61,7 +61,7 @@ const App = () => {
               marginTop: 24,
             }}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await NativeLibrary.getValue()))
+              Alert.alert('Warning', JSON.stringify(await MyLibrary.getValue()))
             }}>
             <Text>getValue</Text>
           </TouchableOpacity>

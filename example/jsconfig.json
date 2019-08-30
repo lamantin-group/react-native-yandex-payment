@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "underscore": ["lodash"],
+      "react-native-library": ["../index.js"]
+    }
+  }
+}
