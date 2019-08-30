@@ -42,7 +42,8 @@ Update library info in `package.json` to your own
 Roadmap
 --------
 
-- [x] ESLint
+- [x] ESLint for library
+- [ ] ESLint for example
 - [x] Working example folder
 - [x] Hot library replacement in development 
 - [x] Kotlin support for library android module
