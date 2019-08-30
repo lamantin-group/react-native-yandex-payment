@@ -25,7 +25,7 @@ module.exports = {
     ]),
     providesModuleNodeModules: ['@babel/runtime', ...peerDependencies],
     extraNodeModules: {
-      'react-native-web-image': __dirname,
+      'react-native-library': __dirname,
     },
   },
 }

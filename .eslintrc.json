@@ -69,5 +69,14 @@
       }
     ],
     "no-mixed-operators": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {"react-native-library": "."},
+      "node": {
+        // "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
   }
 }
