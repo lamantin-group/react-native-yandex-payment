@@ -26,11 +26,11 @@ Reset git repository
 npm run git:reset
 ```
 
-Update next library info in `package.json` to your own
+Update library info in `package.json` to your own
 ```json
-  "name": "react-native-library",
+  "name": "react-native-library", // required for correct work renaming
+  "author": "whalemare", // required for correct work renaming
   "version": "1.0.0",
-  "author": "whalemare",
   "description": "Library bootstrap",
   "license": "Apache 2.0",
   "repository": {
