@@ -42,18 +42,25 @@ Update library info in `package.json` to your own
 Roadmap
 --------
 
+Common
 - [x] ESLint for library
 - [ ] ESLint for example
 - [x] Working example folder
 - [x] Hot library replacement in development 
-- [x] Kotlin support for library android module
-- [x] Gradle 5.4.1
 - [x] Autocomplete for library support in example folder
-- [ ] Swift support for library ios module
-- [ ] Hot reloading for example (working only reloading)
 - [x] TypeScript for library development
-- [ ] iOS library module support
-- [x] Android library module support
 - [x] Rename library possibility
-- [ ] Fix local.properties to work on independent environment
+- [ ] Hot reloading for example (working only reloading)
 - [ ] CI for checking build status
+
+Android features
+- [x] Android min api 16
+- [x] Android target api 29
+- [x] Kotlin 1.3.50 support
+- [x] Gradle 5.4.1
+- [x] Added most popular library-source repositories (jcenter, google, jitpack)
+- [ ] Fix local.properties to work on independent environment
+
+iOS features
+- [ ] Swift support for library ios module
+- [ ] iOS library module support
