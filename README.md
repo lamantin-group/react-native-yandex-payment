@@ -55,3 +55,4 @@ Roadmap
 - [x] Android library module support
 - [x] Rename library possibility
 - [ ] Fix local.properties to work on independent environment
+- [ ] CI for checking build status
