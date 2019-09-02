@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "underscore": ["lodash"],
-      "react-native-library": ["../index.js"]
+      "react-native-payment": ["../index.js"]
     }
   }
 }

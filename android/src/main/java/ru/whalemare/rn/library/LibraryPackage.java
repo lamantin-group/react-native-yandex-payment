@@ -14,7 +14,7 @@ import java.util.List;
 public class LibraryPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-      return Arrays.<NativeModule>asList(new NativeLibrary(reactContext));
+      return Arrays.<NativeModule>asList(new YandexPayment(reactContext));
     }
 
     // Deprecated from RN 0.47

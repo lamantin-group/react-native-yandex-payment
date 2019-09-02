@@ -133,6 +133,12 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
+        def properties = new Properties()
+        properties.load(new FileInputStream(rootProject.file("yandex.properties")))
+        manifestPlaceholders = [YANDEX_CLIENT_ID: properties['YANDEX_CLIENT_ID']]
+        print("YANDEX_CLIENT_ID = " + properties['YANDEX_CLIENT_ID'])
     }
     splits {
         abi {
@@ -188,9 +194,10 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-library')
+    implementation project(':react-native-payment')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";

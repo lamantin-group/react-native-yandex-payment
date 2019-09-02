@@ -26,7 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
 
-import MyLibrary from 'react-native-library'
+import YandexPayment from 'react-native-payment'
+import config from './config'
 
 const Button = props => {
   return (<TouchableOpacity
@@ -54,25 +55,21 @@ const App = () => {
           )}
 
           <Button 
-            text={"MyLibrary.getParams()"}
+            text={"YandexPayment.show()"}
             onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getParams()));
+              await YandexPayment.show({
+                id: config.id,
+                token: config.token,
+                description: "Shop description",
+                name: "Shop name",
+              }, {
+                amount: 1,
+                currency: "RUB",
+                types: ["BANK_CARD"]
+              })
             }}
           />
 
-          <Button 
-            text={"MyLibrary.getValue()"}
-            onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.getValue()));
-            }}
-          />
-
-          <Button 
-            text={"MyLibrary.putValue(3)"}
-            onPress={async () => {
-              Alert.alert('Warning', JSON.stringify(await MyLibrary.putValue(3)));
-            }}
-          />
         </ScrollView>
       </SafeAreaView>
     </View>

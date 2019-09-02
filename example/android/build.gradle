@@ -34,5 +34,6 @@ allprojects {
 
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/yandex-money/maven' }
     }
 }

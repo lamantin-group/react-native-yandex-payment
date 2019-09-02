@@ -1,3 +1,3 @@
-import { MyLibrary } from './src/MyLibrary'
+import { YandexPayment } from './src/YandexPayment'
 
-export default MyLibrary
+export default YandexPayment
