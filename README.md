@@ -1,19 +1,48 @@
 What is it
 ----------
 
-Bootstrap template for create libraries in React Native environment
+Library for implement Yandex Checkout functionality on ReactNative environment.
 
 How to use it
 -------------
 
-Clone repository in development folder (it is created automatically)
-```bash
-git clone https://github.com/whalemare/react-native-library.git react-native-library-name
+Add Yandex repository inside `android/build.gradle`
+```groovy
+allprojects {
+    repositories {
+      ...
+      maven { url 'https://dl.bintray.com/yandex-money/maven' }    
+    }
+}
+```
+
+Enable multidex if needed in `android/app/build.gradle`.
+```diff
+android {
+    defaultConfig {
+        ...
++        multiDexEnabled true
+    }
+}
+
+dependencies {
+    ...
++    implementation 'androidx.multidex:multidex:2.0.1'
+}
+```
+
+Add Yandex Client ID
+```groovy
+android {
+    defaultConfig {
+        manifestPlaceholders = [YANDEX_CLIENT_ID: "ваш id приложения в Яндекс.Паспорте"]
+    }
+}
 ```
 
 Move into cloned folder
 ```bash
-cd react-native-library-name
+cd react-native-payment-name
 ```
 
 Check that sample started correctly
@@ -28,14 +57,14 @@ npm run git:reset
 
 Update library info in `package.json` to your own
 ```json
-  "name": "react-native-library", // required for correct work renaming
+  "name": "react-native-payment", // required for correct work renaming
   "author": "whalemare", // required for correct work renaming
   "version": "1.0.0",
   "description": "Library bootstrap",
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-library.git"
+    "url": "git+https://github.com/whalemare/react-native-payment.git"
   }
 ```
 

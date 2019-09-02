@@ -1,5 +1,5 @@
 rootProject.name = 'example'
-include ':react-native-library'
-project(':react-native-library').projectDir = new File(rootProject.projectDir, '../../android')
+include ':react-native-payment'
+project(':react-native-payment').projectDir = new File(rootProject.projectDir, '../../android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'

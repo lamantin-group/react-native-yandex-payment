@@ -5,7 +5,7 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
-        "react-native-library": ".."
+        "react-native-payment": ".."
       }
     }]
   ]

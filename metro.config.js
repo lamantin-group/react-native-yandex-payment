@@ -25,7 +25,7 @@ module.exports = {
     ]),
     providesModuleNodeModules: ['@babel/runtime', ...peerDependencies],
     extraNodeModules: {
-      'react-native-library': __dirname,
+      'react-native-payment': __dirname,
     },
   },
 }

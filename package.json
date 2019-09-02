@@ -6,7 +6,7 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-library.git",
+    "url": "git+https://github.com/whalemare/react-native-payment.git",
     "start:first": "npm i && cd example && npm i && npm run android"
   },
   "keywords": [
@@ -54,5 +54,6 @@
     "react": "16.8.6",
     "react-native": "0.60.4",
     "typescript": "^3.4.3"
-  }
+  },
+  "dependencies": {}
 }

@@ -72,7 +72,7 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-module": {"react-native-library": "."},
+      "babel-module": {"react-native-payment": "."},
       "node": {
         // "paths": ["src"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
