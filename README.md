@@ -43,6 +43,7 @@ Roadmap
 --------
 
 Common
+- [x] VSCode full support
 - [x] ESLint for library
 - [ ] ESLint for example
 - [x] Working example folder
@@ -60,6 +61,7 @@ Android features
 - [x] Gradle 5.4.1
 - [x] Added most popular library-source repositories (jcenter, google, jitpack)
 - [ ] Fix local.properties to work on independent environment
+- [ ] Extensions mapper to language types from ReactNative types
 
 iOS features
 - [ ] Swift support for library ios module
