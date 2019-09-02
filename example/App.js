@@ -64,7 +64,7 @@ const App = () => {
                 name: "Shop name",
               }, {
                 amount: 1,
-                currency: "USD",
+                currency: "RUB",
                 types: ["BANK_CARD"]
               })
             }}

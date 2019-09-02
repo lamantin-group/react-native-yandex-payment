@@ -138,6 +138,7 @@ android {
         def properties = new Properties()
         properties.load(new FileInputStream(rootProject.file("yandex.properties")))
         manifestPlaceholders = [YANDEX_CLIENT_ID: properties['YANDEX_CLIENT_ID']]
+        print("YANDEX_CLIENT_ID = " + properties['YANDEX_CLIENT_ID'])
     }
     splits {
         abi {
