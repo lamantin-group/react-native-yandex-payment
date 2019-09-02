@@ -33,11 +33,11 @@ public class InlineActivityResult {
     };
     //endregion
 
-    public static InlineActivityResult startForResult(final FragmentActivity activity, @Nullable final Intent intent, @Nullable final ActivityResultListener listener){
+    public static InlineActivityResult startForResult(final FragmentActivity activity, @Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
         return new InlineActivityResult(activity).startForResult(intent, listener);
     }
 
-    public static InlineActivityResult startForResult(final Fragment fragment, @Nullable final Intent intent, @Nullable final ActivityResultListener listener){
+    public static InlineActivityResult startForResult(final Fragment fragment, @Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
         return new InlineActivityResult(fragment).startForResult(intent, listener);
     }
 
@@ -115,26 +115,20 @@ public class InlineActivityResult {
             return;
         }
 
-        final ActivityResultFragment oldFragment = (ActivityResultFragment) activity
-                .getSupportFragmentManager()
-                .findFragmentByTag(TAG);
+//        final ActivityResultFragment oldFragment = (ActivityResultFragment) activity
+//            .getSupportFragmentManager()
+//            .findFragmentByTag(TAG);
 
-        if (oldFragment != null) {
-            oldFragment.setListener(listener);
-        } else {
-            final ActivityResultFragment newFragment = ActivityResultFragment.newInstance(intent);
-            newFragment.setListener(listener);
-
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    activity.getSupportFragmentManager()
-                            .beginTransaction()
-                            .add(newFragment, TAG)
-                            .commitNowAllowingStateLoss();
-                }
-            });
-
-        }
+        final ActivityResultFragment fragment = ActivityResultFragment.newInstance(intent);
+        fragment.setListener(listener);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(fragment, TAG)
+                    .commitNowAllowingStateLoss();
+            }
+        });
     }
 }

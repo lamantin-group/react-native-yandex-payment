@@ -40,33 +40,8 @@ android {
 }
 ```
 
-Move into cloned folder
-```bash
-cd react-native-payment-name
-```
+List of [https://www.ibm.com/support/knowledgecenter/en/SSZLC2_7.0.0/com.ibm.commerce.payments.developer.doc/refs/rpylerl2mst97.htm](currency codes)
 
-Check that sample started correctly
-```bash
-npm run start:first
-```
-
-Reset git repository
-```bash
-npm run git:reset
-```
-
-Update library info in `package.json` to your own
-```json
-  "name": "react-native-payment", // required for correct work renaming
-  "author": "whalemare", // required for correct work renaming
-  "version": "1.0.0",
-  "description": "Library bootstrap",
-  "license": "Apache 2.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-payment.git"
-  }
-```
 
 Roadmap
 --------

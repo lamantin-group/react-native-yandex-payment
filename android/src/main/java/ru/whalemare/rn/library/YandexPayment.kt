@@ -31,24 +31,28 @@ class YandexPayment(val reactContext: ReactApplicationContext) : ReactContextBas
       map.getString(SHOP_NAME)!!,
       map.getString(SHOP_DESCRIPTION)!!
     )
-    startTokenizer(shop,
+    val payment = Payment(
+      amount = map.getDouble(PAYMENT_AMOUNT),
+      currency = map.getString(PAYMENT_CURRENCY)!!,
+      types = map.getArray(PAYMENT_TYPES_ARRAY)!!.toSetPayment()
+    )
+    startTokenizer(shop, payment,
       { token: String, type: PaymentMethodType -> callback.invoke(token, type) },
       { callback.invoke(null, null)}
     )
   }
 
   private fun startTokenizer(shop: Shop,
+                             payment: Payment,
                              onSuccess: (token: String, paymentMethodType: PaymentMethodType) -> Unit,
                              onError: (throwable: Throwable) -> Unit) {
-    val paymentMethodTypes = setOf(PaymentMethodType.BANK_CARD)
-
     val paymentParameters = PaymentParameters(
-      Amount(BigDecimal("1"), Currency.getInstance("RUB")),
+      Amount(BigDecimal(payment.amount), Currency.getInstance(payment.currency)),
       shop.name,
       shop.description,
       shop.token,
       shop.id,
-      paymentMethodTypes
+      payment.types
     )
 
     val testParameters = TestParameters(true, false)
@@ -56,7 +60,6 @@ class YandexPayment(val reactContext: ReactApplicationContext) : ReactContextBas
     val intent = Checkout.createTokenizeIntent(currentActivity!!,
       paymentParameters, testParameters
     )
-    currentActivity!!.startActivityForResult(intent, 33)
     InlineActivityResult.startForResult(
       currentActivity as FragmentActivity,
       intent, object: ActivityResultListener {
@@ -77,6 +80,22 @@ class YandexPayment(val reactContext: ReactApplicationContext) : ReactContextBas
     private const val SHOP_TOKEN = "SHOP_TOKEN"
     private const val SHOP_NAME = "SHOP_NAME"
     private const val SHOP_DESCRIPTION = "SHOP_DESCRIPTION"
+
+    private const val PAYMENT_AMOUNT = "PAYMENT_AMOUNT"
+    private const val PAYMENT_CURRENCY = "PAYMENT_CURRENCY"
+    private const val PAYMENT_TYPES_ARRAY = "PAYMENT_TYPES_ARRAY"
+  }
+
+  fun ReadableArray.toSetPayment(): Set<PaymentMethodType> {
+    val set = mutableSetOf<PaymentMethodType>()
+    (0 until this.size()).forEach { index ->
+      val string = this.getString(index)
+      string?.let {
+        val type = PaymentMethodType.valueOf(it)
+        set.add(type)
+      }
+    }
+    return set
   }
 
 }

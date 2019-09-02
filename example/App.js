@@ -62,6 +62,10 @@ const App = () => {
                 token: config.token,
                 description: "Shop description",
                 name: "Shop name",
+              }, {
+                amount: 1,
+                currency: "USD",
+                types: ["BANK_CARD"]
               })
             }}
           />
