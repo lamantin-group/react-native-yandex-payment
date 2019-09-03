@@ -1,5 +1,5 @@
 platform :ios, '9.0'
-use_modular_headers!
+# use_modular_headers!
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target 'example' do
@@ -29,11 +29,16 @@ target 'example' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # todo: change to node_modules path in real application
-  pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
+  # pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
 
-  pod 'YandexCheckoutPayments',
-    :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
-    :tag => '2.2.0'
+  # pod 'YandexCheckoutPayments',
+  #   :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
+  #   :tag => '2.2.0'
+
+  # pod 'YandexLoginSDK',
+  #   :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
+  #   :tag => '2.0.2',
+  #   :modular_headers => true
 
   target 'exampleTests' do
     inherit! :search_paths

@@ -4,6 +4,7 @@ import { Shop } from './Shop';
 import { NativeModules } from 'react-native'
 
 const YandexPaymentNative = NativeModules.YandexPayment
+console.log("NativeModules = ", Object.keys(NativeModules))
 
 export class YandexPayment {
 
