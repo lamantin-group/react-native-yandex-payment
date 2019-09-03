@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9025AC9D32A4A28727F7EA90 /* libPods-MyFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3BDDCF1609677CAF4B19F2 /* libPods-MyFramework.a */; };
 		A732E505231D0EDA00D6E774 /* MyFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A732E503231D0EDA00D6E774 /* MyFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A732E50C231D101700D6E774 /* FrameworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A732E50B231D101700D6E774 /* FrameworkClass.swift */; };
 		A7C11B18231DFFE20012D01B /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C11B17231DFFE20012D01B /* TrustDefender.framework */; };
-		A84BE7D654A85D108C534D37 /* Pods_MyFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E955715BD59EB72F5EF8AE /* Pods_MyFramework.framework */; };
+		A7C11B1A231E01C10012D01B /* YandexPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C11B19231E01C10012D01B /* YandexPayment.m */; };
+		A7C11B1C231E01D50012D01B /* YandexPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C11B1B231E01D50012D01B /* YandexPayment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		024AF0693DA1CD569991D85E /* Pods-MyFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFramework.release.xcconfig"; path = "Target Support Files/Pods-MyFramework/Pods-MyFramework.release.xcconfig"; sourceTree = "<group>"; };
-		32E955715BD59EB72F5EF8AE /* Pods_MyFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C3BDDCF1609677CAF4B19F2 /* libPods-MyFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FB738E5CA6438CE339A7B7 /* Pods-MyFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFramework.debug.xcconfig"; path = "Target Support Files/Pods-MyFramework/Pods-MyFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		A732E500231D0EDA00D6E774 /* MyFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A732E503231D0EDA00D6E774 /* MyFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFramework.h; sourceTree = "<group>"; };
 		A732E504231D0EDA00D6E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A732E50B231D101700D6E774 /* FrameworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkClass.swift; sourceTree = "<group>"; };
 		A7C11B17231DFFE20012D01B /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefender.framework; sourceTree = "<group>"; };
+		A7C11B19231E01C10012D01B /* YandexPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexPayment.m; sourceTree = "<group>"; };
+		A7C11B1B231E01D50012D01B /* YandexPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexPayment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +34,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C11B18231DFFE20012D01B /* TrustDefender.framework in Frameworks */,
-				A84BE7D654A85D108C534D37 /* Pods_MyFramework.framework in Frameworks */,
+				9025AC9D32A4A28727F7EA90 /* libPods-MyFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C11B17231DFFE20012D01B /* TrustDefender.framework */,
-				32E955715BD59EB72F5EF8AE /* Pods_MyFramework.framework */,
+				3C3BDDCF1609677CAF4B19F2 /* libPods-MyFramework.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -70,6 +74,8 @@
 				A732E503231D0EDA00D6E774 /* MyFramework.h */,
 				A732E504231D0EDA00D6E774 /* Info.plist */,
 				A732E50B231D101700D6E774 /* FrameworkClass.swift */,
+				A7C11B19231E01C10012D01B /* YandexPayment.m */,
+				A7C11B1B231E01D50012D01B /* YandexPayment.swift */,
 			);
 			path = MyFramework;
 			sourceTree = "<group>";
@@ -106,6 +112,7 @@
 				A732E4FC231D0EDA00D6E774 /* Sources */,
 				A732E4FD231D0EDA00D6E774 /* Frameworks */,
 				A732E4FE231D0EDA00D6E774 /* Resources */,
+				F208BF48182F966DE88C4E37 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +188,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F208BF48182F966DE88C4E37 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyFramework/Pods-MyFramework-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyFramework/Pods-MyFramework-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFramework/Pods-MyFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -188,7 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C11B1C231E01D50012D01B /* YandexPayment.swift in Sources */,
 				A732E50C231D101700D6E774 /* FrameworkClass.swift in Sources */,
+				A7C11B1A231E01C10012D01B /* YandexPayment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

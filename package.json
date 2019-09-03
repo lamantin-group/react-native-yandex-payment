@@ -6,8 +6,7 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-payment.git",
-    "start:first": "npm i && cd example && npm i && npm run android"
+    "url": "git+https://github.com/whalemare/react-native-payment.git"
   },
   "keywords": [
     "react-native-yandex-payment",
@@ -25,8 +24,8 @@
   "main": "index.js",
   "scripts": {
     "start": "react-native start",
-    "install:deps": "npm install && cd example && npm install",
-    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm install && cd example && npm install",
+    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm run install:deps",
+    "install:deps": "npm install && cd example && npm install && cd ios && pod install && cd .. && cd .. && cd ios && pod install",
     "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
     "android": "cd example && npm run android",
     "ios": "cd example && npm run ios"
@@ -53,7 +52,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "prettier-eslint": "^9.0.0",
     "react": "16.8.6",
-    "react-native": "0.60.4",
+    "react-native": "0.60.5",
     "typescript": "^3.4.3"
   },
   "dependencies": {}

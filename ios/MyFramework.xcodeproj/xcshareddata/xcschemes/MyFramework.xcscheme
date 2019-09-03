@@ -14,8 +14,22 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1BEE828C124E6416179B904A9F66D794"
+               BuildableName = "React"
+               BlueprintName = "React"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "7B3B7845221996DC26C83ECBD7856C42"
-               BuildableName = "Pods_MyFramework.framework"
+               BuildableName = "libPods-MyFramework.a"
                BlueprintName = "Pods-MyFramework"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>

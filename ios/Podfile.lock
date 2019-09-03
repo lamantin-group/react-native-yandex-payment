@@ -1,5 +1,85 @@
 PODS:
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.6)
+  - Folly (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - Folly/Default (= 2018.10.22.00)
+    - glog
+  - Folly/Default (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
   - FunctionalSwift (1.1.2)
+  - glog (0.3.5)
+  - React (0.60.5):
+    - React-Core (= 0.60.5)
+    - React-DevSupport (= 0.60.5)
+    - React-RCTActionSheet (= 0.60.5)
+    - React-RCTAnimation (= 0.60.5)
+    - React-RCTBlob (= 0.60.5)
+    - React-RCTImage (= 0.60.5)
+    - React-RCTLinking (= 0.60.5)
+    - React-RCTNetwork (= 0.60.5)
+    - React-RCTSettings (= 0.60.5)
+    - React-RCTText (= 0.60.5)
+    - React-RCTVibration (= 0.60.5)
+    - React-RCTWebSocket (= 0.60.5)
+  - React-Core (0.60.5):
+    - Folly (= 2018.10.22.00)
+    - React-cxxreact (= 0.60.5)
+    - React-jsiexecutor (= 0.60.5)
+    - yoga (= 0.60.5.React)
+  - React-cxxreact (0.60.5):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-jsinspector (= 0.60.5)
+  - React-DevSupport (0.60.5):
+    - React-Core (= 0.60.5)
+    - React-RCTWebSocket (= 0.60.5)
+  - React-jsi (0.60.5):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-jsi/Default (= 0.60.5)
+  - React-jsi/Default (0.60.5):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React-jsiexecutor (0.60.5):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-cxxreact (= 0.60.5)
+    - React-jsi (= 0.60.5)
+  - React-jsinspector (0.60.5)
+  - React-RCTActionSheet (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTAnimation (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTBlob (0.60.5):
+    - React-Core (= 0.60.5)
+    - React-RCTNetwork (= 0.60.5)
+    - React-RCTWebSocket (= 0.60.5)
+  - React-RCTImage (0.60.5):
+    - React-Core (= 0.60.5)
+    - React-RCTNetwork (= 0.60.5)
+  - React-RCTLinking (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTNetwork (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTSettings (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTText (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTVibration (0.60.5):
+    - React-Core (= 0.60.5)
+  - React-RCTWebSocket (0.60.5):
+    - React-Core (= 0.60.5)
   - When (4.0.0)
   - YandexCheckoutPayments (2.2.0):
     - FunctionalSwift (~> 1.1.0)
@@ -28,33 +108,125 @@ PODS:
     - YandexMobileMetrica/Dynamic/Core
   - YandexMoneyCoreApi (1.7.0):
     - FunctionalSwift (~> 1.1.0)
+  - yoga (0.60.5.React)
 
 DEPENDENCIES:
+  - DoubleConversion (from `../example/node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Folly (from `../example/node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../example/node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - React (from `../example/node_modules/react-native`)
+  - React-Core (from `../example/node_modules/react-native/React`)
+  - React-cxxreact (from `../example/node_modules/react-native/ReactCommon/cxxreact`)
+  - React-DevSupport (from `../example/node_modules/react-native/React`)
+  - React-jsi (from `../example/node_modules/react-native/ReactCommon/jsi`)
+  - React-jsiexecutor (from `../example/node_modules/react-native/ReactCommon/jsiexecutor`)
+  - React-jsinspector (from `../example/node_modules/react-native/ReactCommon/jsinspector`)
+  - React-RCTActionSheet (from `../example/node_modules/react-native/Libraries/ActionSheetIOS`)
+  - React-RCTAnimation (from `../example/node_modules/react-native/Libraries/NativeAnimation`)
+  - React-RCTBlob (from `../example/node_modules/react-native/Libraries/Blob`)
+  - React-RCTImage (from `../example/node_modules/react-native/Libraries/Image`)
+  - React-RCTLinking (from `../example/node_modules/react-native/Libraries/LinkingIOS`)
+  - React-RCTNetwork (from `../example/node_modules/react-native/Libraries/Network`)
+  - React-RCTSettings (from `../example/node_modules/react-native/Libraries/Settings`)
+  - React-RCTText (from `../example/node_modules/react-native/Libraries/Text`)
+  - React-RCTVibration (from `../example/node_modules/react-native/Libraries/Vibration`)
+  - React-RCTWebSocket (from `../example/node_modules/react-native/Libraries/WebSocket`)
   - YandexCheckoutPayments (from `https://github.com/yandex-money/yandex-checkout-payments-swift.git`, tag `2.2.0`)
+  - YandexLoginSDK (from `https://github.com/yandexmobile/yandex-login-sdk-ios`, tag `2.0.2`)
+  - yoga (from `../example/node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
     - FunctionalSwift
     - When
     - YandexCheckoutPaymentsApi
     - YandexCheckoutShowcaseApi
     - YandexCheckoutWalletApi
-    - YandexLoginSDK
     - YandexMobileMetrica
     - YandexMoneyCoreApi
 
 EXTERNAL SOURCES:
+  DoubleConversion:
+    :podspec: "../example/node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../example/node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../example/node_modules/react-native/third-party-podspecs/glog.podspec"
+  React:
+    :path: "../example/node_modules/react-native"
+  React-Core:
+    :path: "../example/node_modules/react-native/React"
+  React-cxxreact:
+    :path: "../example/node_modules/react-native/ReactCommon/cxxreact"
+  React-DevSupport:
+    :path: "../example/node_modules/react-native/React"
+  React-jsi:
+    :path: "../example/node_modules/react-native/ReactCommon/jsi"
+  React-jsiexecutor:
+    :path: "../example/node_modules/react-native/ReactCommon/jsiexecutor"
+  React-jsinspector:
+    :path: "../example/node_modules/react-native/ReactCommon/jsinspector"
+  React-RCTActionSheet:
+    :path: "../example/node_modules/react-native/Libraries/ActionSheetIOS"
+  React-RCTAnimation:
+    :path: "../example/node_modules/react-native/Libraries/NativeAnimation"
+  React-RCTBlob:
+    :path: "../example/node_modules/react-native/Libraries/Blob"
+  React-RCTImage:
+    :path: "../example/node_modules/react-native/Libraries/Image"
+  React-RCTLinking:
+    :path: "../example/node_modules/react-native/Libraries/LinkingIOS"
+  React-RCTNetwork:
+    :path: "../example/node_modules/react-native/Libraries/Network"
+  React-RCTSettings:
+    :path: "../example/node_modules/react-native/Libraries/Settings"
+  React-RCTText:
+    :path: "../example/node_modules/react-native/Libraries/Text"
+  React-RCTVibration:
+    :path: "../example/node_modules/react-native/Libraries/Vibration"
+  React-RCTWebSocket:
+    :path: "../example/node_modules/react-native/Libraries/WebSocket"
   YandexCheckoutPayments:
     :git: https://github.com/yandex-money/yandex-checkout-payments-swift.git
     :tag: 2.2.0
+  YandexLoginSDK:
+    :git: https://github.com/yandexmobile/yandex-login-sdk-ios
+    :tag: 2.0.2
+  yoga:
+    :path: "../example/node_modules/react-native/ReactCommon/yoga"
 
 CHECKOUT OPTIONS:
   YandexCheckoutPayments:
     :git: https://github.com/yandex-money/yandex-checkout-payments-swift.git
     :tag: 2.2.0
+  YandexLoginSDK:
+    :git: https://github.com/yandexmobile/yandex-login-sdk-ios
+    :tag: 2.0.2
 
 SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   FunctionalSwift: 8ac888d5c2f2c0ce6bf7d48daea1408a8bfdd864
+  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  React: 53c53c4d99097af47cf60594b8706b4e3321e722
+  React-Core: ba421f6b4f4cbe2fb17c0b6fc675f87622e78a64
+  React-cxxreact: 8384287780c4999351ad9b6e7a149d9ed10a2395
+  React-DevSupport: 197fb409737cff2c4f9986e77c220d7452cb9f9f
+  React-jsi: 4d8c9efb6312a9725b18d6fc818ffc103f60fec2
+  React-jsiexecutor: 90ad2f9db09513fc763bc757fdc3c4ff8bde2a30
+  React-jsinspector: e08662d1bf5b129a3d556eb9ea343a3f40353ae4
+  React-RCTActionSheet: b0f1ea83f4bf75fb966eae9bfc47b78c8d3efd90
+  React-RCTAnimation: 359ba1b5690b1e87cc173558a78e82d35919333e
+  React-RCTBlob: 5e2b55f76e9a1c7ae52b826923502ddc3238df24
+  React-RCTImage: f5f1c50922164e89bdda67bcd0153952a5cfe719
+  React-RCTLinking: d0ecbd791e9ddddc41fa1f66b0255de90e8ee1e9
+  React-RCTNetwork: e26946300b0ab7bb6c4a6348090e93fa21f33a9d
+  React-RCTSettings: d0d37cb521b7470c998595a44f05847777cc3f42
+  React-RCTText: b074d89033583d4f2eb5faf7ea2db3a13c7553a2
+  React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
+  React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   When: 4ffc88d535a094ad4bd5eaf2fd187de747e716d1
   YandexCheckoutPayments: 3329bb2e6d7c9228d4c0de9152c41ae4e890025b
   YandexCheckoutPaymentsApi: e3f45d08993fc8e67f63c28d194b04d25a31e303
@@ -63,7 +235,8 @@ SPEC CHECKSUMS:
   YandexLoginSDK: cd407482207b4b7da75c5f7d7fd2fdd6a604c325
   YandexMobileMetrica: 95e93ee5af38520c9e470533dc8df6cf72fa171d
   YandexMoneyCoreApi: 3d9364913ee91bf3f453d75c9d10fef3ccc9dc4f
+  yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
-PODFILE CHECKSUM: ae4a6a7f6f0cfb9de7d9e78c4cb3dd893467f05c
+PODFILE CHECKSUM: db8638e309812c4f0de21834f65a07fc9bbebdab
 
 COCOAPODS: 1.7.5

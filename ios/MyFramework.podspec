@@ -90,6 +90,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "Sources", "*.{h,m,swift}"
+  spec.dependency 'React'
   spec.dependency 'YandexCheckoutPayments'
   # spec.public_header_files = "Classes/**/*.h"
 
