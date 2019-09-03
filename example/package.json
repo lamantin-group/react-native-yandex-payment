@@ -6,7 +6,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios --simulator='iPhone SE'"
   },
   "dependencies": {
     "react": "16.8.6",

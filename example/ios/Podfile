@@ -1,4 +1,5 @@
 platform :ios, '9.0'
+use_modular_headers!
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target 'example' do
@@ -27,7 +28,12 @@ target 'example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'NativeLibrary', :path => '../node_modules/react-native-payment'
+  # todo: change to node_modules path in real application
+  pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
+
+  pod 'YandexCheckoutPayments',
+    :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
+    :tag => '2.2.0'
 
   target 'exampleTests' do
     inherit! :search_paths
