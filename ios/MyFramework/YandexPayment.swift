@@ -29,13 +29,14 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             let shopDescription = map["SHOP_DESCRIPTION"] as? String ?? "Ltd Sviazisto"
             
             let amount = Amount(value: 1, currency: .rub)
-            let inputData = TokenizationModuleInputData(
+            let moduleInputData = TokenizationModuleInputData(
                 clientApplicationKey: clientApplicationKey,
                 shopName: shopName,
                 purchaseDescription: shopDescription,
                 amount: amount,
                 tokenizationSettings: TokenizationSettings(paymentMethodTypes: .bankCard)
             )
+            let inputData: TokenizationFlow = .tokenization(moduleInputData)
             viewController = TokenizationAssembly.makeModule(
                 inputData: inputData,
                 moduleOutput: self
