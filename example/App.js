@@ -57,7 +57,7 @@ const App = () => {
           <Button 
             text={"YandexPayment.show()"}
             onPress={async () => {
-              await YandexPayment.show({
+              const result = await YandexPayment.show({
                 id: config.id,
                 token: config.token,
                 description: "Shop description",
@@ -67,6 +67,7 @@ const App = () => {
                 currency: "RUB",
                 types: ["BANK_CARD"]
               })
+              alert(JSON.stringify(result))
             }}
           />
 

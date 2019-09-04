@@ -84,7 +84,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         let payment = Payment(
             amount: map["PAYMENT_AMOUNT"] as! Double,
             currency: stringToCurrency(string: map["PAYMENT_CURRENCY"] as! String),
-            types: arrayToSetPaymentTypes(nsArray: (map["PAYMENT_TYPES"] as! NSArray))
+            types: arrayToSetPaymentTypes(nsArray: (map["PAYMENT_TYPES_ARRAY"] as! NSArray))
         )
         
         let moduleInputData = TokenizationModuleInputData(

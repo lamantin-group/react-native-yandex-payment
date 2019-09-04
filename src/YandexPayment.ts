@@ -21,7 +21,7 @@ export class YandexPayment {
         SHOP_DESCRIPTION: shop.description,
         PAYMENT_AMOUNT: payment.amount,
         PAYMENT_CURRENCY: payment.currency,
-        PAYMENT_TYPES_ARRAY: payment.types
+        PAYMENT_TYPES_ARRAY: payment.types || []
       }, (token: string, type: string, error: any) => {
         if (token && type) {
           resolve({
