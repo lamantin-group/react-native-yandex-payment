@@ -79,6 +79,7 @@ PODS:
     - React-Core (= 0.60.5)
   - React-RCTWebSocket (0.60.5):
     - React-Core (= 0.60.5)
+  - YandexLoginSDK (2.0.2)
   - yoga (0.60.5.React)
 
 DEPENDENCIES:
@@ -102,6 +103,7 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
+  - YandexLoginSDK (from `https://github.com/yandexmobile/yandex-login-sdk-ios`, tag `2.0.2`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -149,8 +151,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   React-RCTWebSocket:
     :path: "../node_modules/react-native/Libraries/WebSocket"
+  YandexLoginSDK:
+    :git: https://github.com/yandexmobile/yandex-login-sdk-ios
+    :tag: 2.0.2
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
+
+CHECKOUT OPTIONS:
+  YandexLoginSDK:
+    :git: https://github.com/yandexmobile/yandex-login-sdk-ios
+    :tag: 2.0.2
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
@@ -174,8 +184,9 @@ SPEC CHECKSUMS:
   React-RCTText: b074d89033583d4f2eb5faf7ea2db3a13c7553a2
   React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
+  YandexLoginSDK: cd407482207b4b7da75c5f7d7fd2fdd6a604c325
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
-PODFILE CHECKSUM: adfc00fb6f318dba15cd01aa027737d73569c78f
+PODFILE CHECKSUM: 6b11231327ebea29a938ab6aea3429a592b93637
 
 COCOAPODS: 1.7.5
