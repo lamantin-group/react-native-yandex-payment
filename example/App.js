@@ -16,6 +16,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Alert,
+  Platform
 } from 'react-native'
 
 import {
@@ -60,8 +61,8 @@ const App = () => {
               const result = await YandexPayment.show({
                 id: config.id,
                 token: config.token,
-                name: "Shop name",
-                description: "Shop description",
+                name: "React shop",
+                description: "Buy on " + Platform.OS + " " + Platform.Version,
               }, {
                 amount: 1,
                 currency: "RUB",
