@@ -1,6 +1,7 @@
 platform :ios, '10.0'
 # use_modular_headers!
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+plugin 'cocoapods-fix-react-native'
 
 target 'example' do
   # Pods for example
@@ -31,9 +32,10 @@ target 'example' do
   # todo: change to node_modules path in real application
   # pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
 
-  # pod 'YandexCheckoutPayments',
-  #   :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
-  #   :tag => '2.2.0'
+  pod 'YandexCheckoutPayments',
+    :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
+    :tag => '2.2.0',
+    :modular_headers => true
 
   pod 'YandexLoginSDK',
     :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
@@ -45,7 +47,7 @@ target 'example' do
     # Pods for testing
   end
 
-  use_native_modules!
+  # use_native_modules!
 end
 
 target 'example-tvOS' do
