@@ -22,10 +22,4 @@
 #import "React/RCTBridgeModule.h"
 #import "React/RCTViewManager.h"
 
-@interface RCT_EXTERN_MODULE(YandexPayment, RCTViewManager)
-
-RCT_EXTERN_METHOD(attach:
-                  (NSDictionary *) map
-                  callbacker:(RCTResponseSenderBlock) callback
-                  )
-@end
+// hello from comment MyFramework

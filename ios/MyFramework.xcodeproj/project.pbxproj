@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9025AC9D32A4A28727F7EA90 /* libPods-MyFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3BDDCF1609677CAF4B19F2 /* libPods-MyFramework.a */; };
+		A74A6197231F830E006B8E7A /* YandexPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = A74A6196231F830E006B8E7A /* YandexPayment.m */; };
 		A7C11B18231DFFE20012D01B /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C11B17231DFFE20012D01B /* TrustDefender.framework */; };
 		A7C11B1C231E01D50012D01B /* YandexPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C11B1B231E01D50012D01B /* YandexPayment.swift */; };
 		A7C11B26231E16740012D01B /* MyFramework-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C11B25231E16740012D01B /* MyFramework-Bridging-Header.h */; };
-		A7C11B34231E1C810012D01B /* YandexPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C11B33231E1C810012D01B /* YandexPayment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		86FB738E5CA6438CE339A7B7 /* Pods-MyFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFramework.debug.xcconfig"; path = "Target Support Files/Pods-MyFramework/Pods-MyFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		A732E500231D0EDA00D6E774 /* MyFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A732E504231D0EDA00D6E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A74A6196231F830E006B8E7A /* YandexPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexPayment.m; sourceTree = "<group>"; };
 		A7C11B17231DFFE20012D01B /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefender.framework; sourceTree = "<group>"; };
 		A7C11B1B231E01D50012D01B /* YandexPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexPayment.swift; sourceTree = "<group>"; };
 		A7C11B25231E16740012D01B /* MyFramework-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyFramework-Bridging-Header.h"; sourceTree = "<group>"; };
-		A7C11B33231E1C810012D01B /* YandexPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexPayment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 				A732E504231D0EDA00D6E774 /* Info.plist */,
 				A7C11B1B231E01D50012D01B /* YandexPayment.swift */,
 				A7C11B25231E16740012D01B /* MyFramework-Bridging-Header.h */,
-				A7C11B33231E1C810012D01B /* YandexPayment.m */,
+				A74A6196231F830E006B8E7A /* YandexPayment.m */,
 			);
 			path = MyFramework;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7C11B1C231E01D50012D01B /* YandexPayment.swift in Sources */,
-				A7C11B34231E1C810012D01B /* YandexPayment.m in Sources */,
+				A74A6197231F830E006B8E7A /* YandexPayment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
