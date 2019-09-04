@@ -25,9 +25,11 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
+import { NativeModules } from 'react-native'
 
 import YandexPayment from 'react-native-payment'
 import config from './config'
+console.log("NativeModules = ", Object.keys(NativeModules))
 
 const Button = props => {
   return (<TouchableOpacity
