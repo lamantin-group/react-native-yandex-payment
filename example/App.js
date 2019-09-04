@@ -60,8 +60,8 @@ const App = () => {
               const result = await YandexPayment.show({
                 id: config.id,
                 token: config.token,
-                description: "Shop description",
                 name: "Shop name",
+                description: "Shop description",
               }, {
                 amount: 1,
                 currency: "RUB",

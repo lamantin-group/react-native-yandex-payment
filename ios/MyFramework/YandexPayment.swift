@@ -107,7 +107,16 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     }
     
     func didSuccessfullyPassedCardSec(on module: TokenizationModuleInput) {
-        print("didSuccessfullyPassedCardSec")
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            let alertController = UIAlertController(title: "3D-Sec",
+                                                    message: "Successfully passed 3d-sec",
+                                                    preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(action)
+            strongSelf.viewController?.dismiss(animated: true)
+            strongSelf.viewController?.present(alertController, animated: true)
+        }
     }
     
     func tokenizationModule(_ module: TokenizationModuleInput,
@@ -126,8 +135,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     
     func didFinish(on module: TokenizationModuleInput) {
         DispatchQueue.main.async {
-            self.viewController!.dismiss(animated: true)
+            self.viewController?.dismiss(animated: true)
         }
-        print("didFinish")
     }
 }
