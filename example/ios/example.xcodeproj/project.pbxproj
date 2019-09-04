@@ -16,9 +16,8 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* exampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* exampleTests.m */; };
-		2FCC5E67322F12DF9470396C /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B97EE85A3C558ED779A988 /* libPods-example.a */; };
 		58DA1599C277400ACE415014 /* libPods-example-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC21C7C58031652D5025D463 /* libPods-example-tvOSTests.a */; };
-		A732E51E231D4EDA00D6E774 /* remove.swift in Sources */ = {isa = PBXBuildFile; fileRef = A732E51D231D4EDA00D6E774 /* remove.swift */; };
+		A74A6171231E50A6006B8E7A /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A74A6170231E50A6006B8E7A /* libPods-example.a */; };
 		C6FF29ABA9147D0E617AD23E /* libPods-example-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B330FD03485870ACC38B246 /* libPods-example-tvOS.a */; };
 		D52DA031162C281DD0287BE5 /* libPods-exampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C18E32910BE82298804D0DD0 /* libPods-exampleTests.a */; };
 /* End PBXBuildFile section */
@@ -64,8 +63,7 @@
 		72D56F381B060EA6E9B76A54 /* Pods-example-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-tvOS.release.xcconfig"; path = "Target Support Files/Pods-example-tvOS/Pods-example-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		74B7AC966277B2D797F79F90 /* Pods-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.release.xcconfig"; path = "Target Support Files/Pods-example/Pods-example.release.xcconfig"; sourceTree = "<group>"; };
 		A6C9BEA26CD7F9A9CD5600DC /* Pods-example-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-example-tvOSTests/Pods-example-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		A732E51C231D4ED900D6E774 /* example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "example-Bridging-Header.h"; sourceTree = "<group>"; };
-		A732E51D231D4EDA00D6E774 /* remove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remove.swift; sourceTree = "<group>"; };
+		A74A6170231E50A6006B8E7A /* libPods-example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18E32910BE82298804D0DD0 /* libPods-exampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-exampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC21C7C58031652D5025D463 /* libPods-example-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-example-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -85,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FCC5E67322F12DF9470396C /* libPods-example.a in Frameworks */,
+				A74A6171231E50A6006B8E7A /* libPods-example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +133,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				A732E51D231D4EDA00D6E774 /* remove.swift */,
-				A732E51C231D4ED900D6E774 /* example-Bridging-Header.h */,
 			);
 			name = example;
 			sourceTree = "<group>";
@@ -144,6 +140,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A74A6170231E50A6006B8E7A /* libPods-example.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				59B97EE85A3C558ED779A988 /* libPods-example.a */,
@@ -234,8 +231,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E97323B1889FE7FF609A926B /* [CP] Embed Pods Frameworks */,
-				02B9860B6A32E4837912CBCD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,136 +378,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		02B9860B6A32E4837912CBCD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-example/Pods-example-resources.sh",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Configurations/CardConfiguration.plist",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Configurations/Hosts.plist",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Configurations/banks.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/action_back.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/action_forward.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/action_refresh.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/BankCardDataInput/BankCardDataInput.Scan.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/BankCardDataInput/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/ak_bars_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/alfa_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/asian_pacific_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/baltinvestbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/banca_intesa_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_avangard_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_finservice_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_jugra_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_of_moscow_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_otkritie_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_russkiy_standart_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_saint_petersburg_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_souyz_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bank_zenit_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bin_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/bnp_paribas_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/citibank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/credit_bank_of_moscow_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/credit_europe_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/expobank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/finprombank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/gazprombank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/globex_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/home_credit_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/international_financial_club_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/jsc_cb_centr_invest_card.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/jsc_cb_centr_invest_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/mdm_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/moskovskiy_industrialnyi_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/mts_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/novikombank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/otkritie_roket_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/pochta_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/promsvyazbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/qiwi_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/raiffeisenbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/roketbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/rosbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/rosgosstrakh_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/rossiya_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/russian_agricultural_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/russian_regional_development_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/sberbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/skb_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/smp_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/tatfondbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/tatfond_bankcolor.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/tinkoff_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/transkapitalbank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/trust_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/unicredit_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/unknown_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/ural_sib_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/vneshprombank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/vostochnyi_bank_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/vtb24_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/yandex_money_card_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/yandex_money_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/banks/yandex_money_virtual_list.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/clearImage.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/Common.arrow.right.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/Common.check.success.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/Common.close.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/Common.placeholderView.fail.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Common/placeholderView.fail.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Logos/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Logos/logo.kassa.en.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/Logos/logo.kassa.ru.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.AmericanExpress.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.ApplePay.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.BankCard.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Cup.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Dankort.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.DinersClub.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.DiscoverCard.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Instapay.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Jcb.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Lazer.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Maestro.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Mastercard.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Mir.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Sberbank.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Solo.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Switch.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Unknown.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.Visa.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/PaymentMethods/PaymentMethod.YandexWallet.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/paymentSystem_maestro_textControl.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/paymentSystem_masterCard_textControl.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/paymentSystem_mir_textControl.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/paymentSystem_unknownCard_textControl.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/Media.xcassets/paymentSystem_old/paymentSystem_visa_textControl.imageset/Contents.json",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/en.lproj/Localizable.strings",
-				"${PODS_ROOT}/YandexCheckoutPayments/YandexCheckoutPayments/Public/Resources/ru.lproj/Localizable.strings",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CardConfiguration.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Hosts.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/banks.json",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Contents.json",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Localizable.strings",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-example/Pods-example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0E11102B55A25DDBBB8BEC98 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,26 +480,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E97323B1889FE7FF609A926B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-example/Pods-example-frameworks.sh",
-				"${PODS_ROOT}/YandexMobileMetrica/dynamic/YandexMobileMetrica.framework",
-				"${PODS_ROOT}/YandexMobileMetrica/dynamic/YandexMobileMetricaCrashes.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YandexMobileMetrica.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YandexMobileMetricaCrashes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-example/Pods-example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -690,7 +535,6 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				A732E51E231D4EDA00D6E774 /* remove.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,7 +587,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2AB742B0D888A6C92C82CEE6 /* Pods-exampleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -767,7 +610,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1035DEE9B833E390DEE30E63 /* Pods-exampleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = exampleTests/Info.plist;
@@ -798,6 +640,7 @@
 					"\"Frameworks\"/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -826,6 +669,7 @@
 					"\"Frameworks\"/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
