@@ -18,37 +18,91 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     var callback: RCTResponseSenderBlock?
     var viewController: UIViewController?
     
+    func paymentTypeToString(paymentType: PaymentMethodType) -> String {
+        switch paymentType {
+            case .applePay:
+                return "PAY"
+            case .bankCard:
+                return "BANK_CARD"
+            case .yandexMoney:
+                return "YANDEX_MONEY"
+            case .sberbank:
+                return "SBERBANK"
+            case .cash:
+                return "CASH"
+            case .qiwi:
+                return "QIWI"
+            case .alfabank:
+                return "ALFABANK"
+            case .webmoney:
+                return "WEBMONEY"
+        }
+    }
+    
+    func arrayToSetPaymentTypes(nsArray: NSArray) -> Set<PaymentMethodType> {
+        var set: Set<PaymentMethodType> = []
+
+        let array: [String] = nsArray.compactMap({ ($0 as! String) })
+        for type in array {
+            if type == "YANDEX_MONEY" {
+                set.insert(.yandexMoney)
+            } else if type == "GOOGLE_PAY" {
+                set.insert(.applePay)
+            } else if type == "BANK_CARD" {
+                set.insert(.bankCard)
+            } else if type == "SBERBANK" {
+                set.insert(.sberbank)
+            } else if type == "APPLY_PAY" {
+                set.insert(.applePay)
+            } else if type == "PAY" {
+                set.insert(.applePay)
+            }
+        }
+        
+        if set.isEmpty {
+            return [.bankCard, .yandexMoney, .applePay, .sberbank]
+        } else {
+            return set
+        }
+    }
+    
+    func stringToCurrency(string: String) -> Currency {
+        return Currency(rawValue: string)!
+    }
+    
     @objc
     func attach(_ map: NSDictionary,
                 callbacker callback: @escaping RCTResponseSenderBlock) -> Void {
         self.callback = callback
-        print("YandexPayment ios fetchPaymentToken map = ", map)
+        let shop = Shop(
+            id: map["SHOP_ID"] as! String,
+            token: map["SHOP_TOKEN"] as! String,
+            name: map["SHOP_NAME"] as! String,
+            description: map["SHOP_DESCRIPTION"] as! String
+        )
         
-        if let clientApplicationKey = map["SHOP_TOKEN"] as? String {
-            let shopName = map["SHOP_NAME"] as? String ?? "Ltd Sviasito"
-            let shopDescription = map["SHOP_DESCRIPTION"] as? String ?? "Ltd Sviazisto"
-            
-            let amount = Amount(value: 1, currency: .rub)
-            let moduleInputData = TokenizationModuleInputData(
-                clientApplicationKey: clientApplicationKey,
-                shopName: shopName,
-                purchaseDescription: shopDescription,
-                amount: amount,
-                tokenizationSettings: TokenizationSettings(paymentMethodTypes: .bankCard)
-            )
-            let inputData: TokenizationFlow = .tokenization(moduleInputData)
-            viewController = TokenizationAssembly.makeModule(
-                inputData: inputData,
-                moduleOutput: self
-            )
-            
-            DispatchQueue.main.async {
-                let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
-                rootViewController.present(self.viewController!, animated: true, completion: nil)
-            }
-        } else {
-            print("YandexPayment: SHOP_TOKEN is not correct: map = ", map)
-            callback([])
+        let payment = Payment(
+            amount: map["PAYMENT_AMOUNT"] as! Double,
+            currency: stringToCurrency(string: map["PAYMENT_CURRENCY"] as! String),
+            types: arrayToSetPaymentTypes(nsArray: (map["PAYMENT_TYPES"] as! NSArray))
+        )
+        
+        let moduleInputData = TokenizationModuleInputData(
+            clientApplicationKey: shop.token,
+            shopName: shop.name,
+            purchaseDescription: shop.description,
+            amount: Amount(value: Decimal(payment.amount), currency: payment.currency),
+            tokenizationSettings: TokenizationSettings(paymentMethodTypes: PaymentMethodTypes(rawValue: payment.types))
+        )
+        let inputData: TokenizationFlow = .tokenization(moduleInputData)
+        viewController = TokenizationAssembly.makeModule(
+            inputData: inputData,
+            moduleOutput: self
+        )
+        
+        DispatchQueue.main.async {
+            let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
+            rootViewController.present(self.viewController!, animated: true, completion: nil)
         }
     }
     
@@ -62,12 +116,11 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         DispatchQueue.main.async {
             self.viewController!.dismiss(animated: true)
         }
-        print("retrieved payment token is = ", token.paymentToken)
         if let callback = callback {
-            callback([[
-                "paymentToken": token.paymentToken,
-                "paymentType": "BANK_CARD"
-                ]])
+            callback([
+                token.paymentToken,
+                paymentTypeToString(paymentType: paymentMethodType)
+                ])
         }
     }
     

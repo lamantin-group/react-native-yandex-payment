@@ -1,6 +1,6 @@
-import { PaymentToken } from './PaymentToken';
-import { Payment } from './Payment';
-import { Shop } from './Shop';
+import { PaymentToken } from './PaymentToken'
+import { Payment } from './Payment'
+import { Shop } from './Shop'
 import { NativeModules } from 'react-native'
 
 const YandexPaymentNative = NativeModules.YandexPayment
