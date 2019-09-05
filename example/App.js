@@ -26,6 +26,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
+import SheetMenu from 'react-native-sheetmenu'
 
 import YandexPayment from 'react-native-payment'
 import SwitchView from './SwitchView';
@@ -51,17 +52,24 @@ const Button = props => {
 class App extends Component {
   state = {
     paymentTypes: {
-      BANK_CARD: null,
+      BANK_CARD: true,
       PAY: null,
       SBERBANK: null,
       YANDEX_MONEY: null,
-    }
+    },
+    currency: 'RUB',
   }
 
   changePaymentType = (checked, code) => {
     const paymentTypes = this.state.paymentTypes
     paymentTypes[code] = checked ? code : null
     this.setState({paymentTypes})
+  }
+
+  onSelectCurrency = currency => {
+    this.setState({
+      currency: currency
+    })
   }
 
   render() {
@@ -104,6 +112,28 @@ class App extends Component {
                 this.changePaymentType(checked, "YANDEX_MONEY")
               }} 
             />
+
+            <View style={{backgroundColor: "#fff", paddingVertical: 16, marginVertical: 16, paddingHorizontal: 16}}>
+              <TouchableOpacity
+                style={{flexDirection: 'row',}}
+              onPress={() => {
+                new SheetMenu({
+                  actions: [{
+                    title: "RUB",
+                    onPress: () => this.onSelectCurrency("RUB")
+                  }, {
+                    title: "EUR",
+                    onPress: () => this.onSelectCurrency("EUR")
+                  }, {
+                    title: "USD",
+                    onPress: () => this.onSelectCurrency("USD")
+                  }]
+                }).show();
+              }}>
+                <Text style={{flexGrow: 1}}>Currency</Text>
+                <Text>{this.state.currency}</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <Button

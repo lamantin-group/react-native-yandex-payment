@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.5"
+    "react-native": "0.60.5",
+    "react-native-sheetmenu": "1.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
