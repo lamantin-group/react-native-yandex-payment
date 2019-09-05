@@ -24,8 +24,19 @@ const { token, type } = await YandexPayment.show({
 sendTokenAndPaymentTypeToBackend(token, type)
 ```
 
-Setup
------
+Install
+=======
+
+```bash
+npm install react-native-yandex-payment --save 
+```
+or
+```bash
+yarn add react-native-yandex-payment
+```
+
+Android
+-------
 
 Add Yandex repository inside `android/build.gradle`
 ```groovy
@@ -37,7 +48,7 @@ allprojects {
 }
 ```
 
-Enable multidex if needed in `android/app/build.gradle`.
+Enable multidex if needed in `android/app/build.gradle`
 ```diff
 android {
     defaultConfig {
@@ -52,7 +63,7 @@ dependencies {
 }
 ```
 
-Add Yandex Client ID
+Add Yandex Client ID in `android/app/build.gradle`
 ```groovy
 android {
     defaultConfig {
@@ -71,3 +82,5 @@ Roadmap
 - [x] Bank card, Yandex Wallet, Sberbank, Google Pay and Apple Pay payment types support (you should properly configure your shop for this)
 - [ ] Change color scheme
 - [ ] Configure test environment
+
+If you have a question or need specific feature, feel free to [open an issue](https://github.com/lamantin-group/react-native-yandex-payment/issues/new) or create pull request.
