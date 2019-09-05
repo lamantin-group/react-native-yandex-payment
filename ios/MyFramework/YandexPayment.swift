@@ -138,4 +138,10 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             self.viewController?.dismiss(animated: true)
         }
     }
+    
+    func didFinish(on module: TokenizationModuleInput, with error: YandexCheckoutPaymentsError?) {
+        DispatchQueue.main.async {
+            self.viewController?.dismiss(animated: true)
+        }
+    }
 }
