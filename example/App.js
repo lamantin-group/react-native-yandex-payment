@@ -52,7 +52,7 @@ const Button = props => {
 class App extends Component {
   state = {
     paymentTypes: {
-      BANK_CARD: true,
+      BANK_CARD: null,
       PAY: null,
       SBERBANK: null,
       YANDEX_MONEY: null,
@@ -116,25 +116,27 @@ class App extends Component {
             <View style={{backgroundColor: "#fff", paddingVertical: 16, marginVertical: 16, paddingHorizontal: 16}}>
               <TouchableOpacity
                 style={{flexDirection: 'row',}}
-              onPress={() => {
-                new SheetMenu({
-                  actions: [{
-                    title: "RUB",
-                    onPress: () => this.onSelectCurrency("RUB")
-                  }, {
-                    title: "EUR",
-                    onPress: () => this.onSelectCurrency("EUR")
-                  }, {
-                    title: "USD",
-                    onPress: () => this.onSelectCurrency("USD")
-                  }]
-                }).show();
-              }}>
-                <Text style={{flexGrow: 1}}>Currency</Text>
-                <Text>{this.state.currency}</Text>
+                onPress={() => {
+                  new SheetMenu({
+                    actions: [{
+                      title: "RUB",
+                      onPress: () => this.onSelectCurrency("RUB")
+                    }, {
+                      title: "EUR",
+                      onPress: () => this.onSelectCurrency("EUR")
+                    }, {
+                      title: "USD",
+                      onPress: () => this.onSelectCurrency("USD")
+                    }]
+                  }).show()
+                }}>
+                  <Text style={{flexGrow: 1}}>Currency</Text>
+                  <Text>{this.state.currency}</Text>
               </TouchableOpacity>
             </View>
           </View>
+
+          {/* <Text style={{marginTop: 45, color: "#000"}}>{JSON.stringify(Object.values(this.state.paymentTypes).filter(it => it !== null))}</Text> */}
 
           <Button
             style={{
@@ -152,8 +154,8 @@ class App extends Component {
                   description: `Buy on ${Platform.OS} ${Platform.Version}`,
                 },
                 {
-                  amount: 1,
-                  currency: 'RUB',
+                  amount: 1.01,
+                  currency: this.state.currency,
                   types: Object.values(this.state.paymentTypes).filter(it => it !== null),
                 }
               )
