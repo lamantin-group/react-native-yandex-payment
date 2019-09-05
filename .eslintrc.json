@@ -77,6 +77,6 @@
         // "paths": ["src"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
-    },
+    }
   }
 }

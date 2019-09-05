@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,7 +16,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Alert,
-  Platform
+  Platform,
 } from 'react-native'
 
 import {
@@ -28,54 +28,112 @@ import {
 } from 'react-native/Libraries/NewAppScreen'
 
 import YandexPayment from 'react-native-payment'
+import SwitchView from './SwitchView';
 import config from './config'
 
 const Button = props => {
-  return (<TouchableOpacity
-    style={{
-      height: 100,
-      backgroundColor: '#f4f4f4',
-      alignItems: 'center',
-    }}
-    onPress={props.onPress}>
-    <Text>{props.text}</Text>
-  </TouchableOpacity>)
+  return (
+    <TouchableOpacity
+      style={{
+        alignItems: 'center',
+        alignContent: 'center',
+        paddingHorizontal: 16,
+        paddingVertical: 16,
+        alignSelf: 'center',
+        ...props.style,
+      }}
+      onPress={props.onPress}>
+      <Text style={{textAlign: 'center',}}>{props.text}</Text>
+    </TouchableOpacity>
+  )
 }
 
-const App = () => {
-  return (
-    <View>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
+class App extends Component {
+  state = {
+    paymentTypes: {
+      BANK_CARD: null,
+      PAY: null,
+      SBERBANK: null,
+      YANDEX_MONEY: null,
+    }
+  }
 
-          <Button 
-            text={"YandexPayment.show()"}
+  changePaymentType = (checked, code) => {
+    const paymentTypes = this.state.paymentTypes
+    paymentTypes[code] = checked ? code : null
+    this.setState({paymentTypes})
+  }
+
+  render() {
+    console.log(this.state.paymentTypes);
+    console.log(this.state.paymentTypes["BANK_CARD"]);
+    
+    return (
+      <View style={{flex: 1}} >
+        <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+          <View>
+            <SwitchView 
+              title="BANK_CARD" 
+              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
+              checked={!!this.state.paymentTypes["BANK_CARD"]}
+              onChanges={checked => {
+                this.changePaymentType(checked, "BANK_CARD")
+              }} 
+            />
+
+            <SwitchView title="PAY"
+              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
+              checked={!!this.state.paymentTypes["PAY"]}
+              onChanges={checked => {
+                this.changePaymentType(checked, "PAY")
+              }} 
+            />
+
+            <SwitchView title="SBERBANK" 
+              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
+              checked={!!this.state.paymentTypes["SBERBANK"]}
+              onChanges={checked => {
+                this.changePaymentType(checked, "SBERBANK")
+              }} 
+            />
+
+            <SwitchView title="YANDEX_MONEY"
+              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
+              checked={!!this.state.paymentTypes["YANDEX_MONEY"]}
+              onChanges={checked => {
+                this.changePaymentType(checked, "YANDEX_MONEY")
+              }} 
+            />
+          </View>
+
+          <Button
+            style={{
+              marginTop: 100,
+              backgroundColor: '#ffcc00',
+              borderRadius: 8,
+            }}
+            text="YandexPayment.show()"
             onPress={async () => {
-              const result = await YandexPayment.show({
-                id: config.id,
-                token: config.token,
-                name: "React shop",
-                description: "Buy on " + Platform.OS + " " + Platform.Version,
-              }, {
-                amount: 1,
-                currency: "RUB",
-                types: ["BANK_CARD"]
-              })
+              const result = await YandexPayment.show(
+                {
+                  id: config.id,
+                  token: config.token,
+                  name: 'React shop',
+                  description: `Buy on ${Platform.OS} ${Platform.Version}`,
+                },
+                {
+                  amount: 1,
+                  currency: 'RUB',
+                  types: Object.values(this.state.paymentTypes).filter(it => it !== null),
+                }
+              )
               alert(JSON.stringify(result))
             }}
           />
-
         </ScrollView>
-      </SafeAreaView>
-    </View>
-  )
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

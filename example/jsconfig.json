@@ -4,6 +4,7 @@
     "paths": {
       "underscore": ["lodash"],
       "react-native-payment": ["../index.js"]
-    }
+    },
+    "jsx": "react-native"
   }
 }
