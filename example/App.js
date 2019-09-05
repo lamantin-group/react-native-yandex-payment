@@ -72,10 +72,7 @@ class App extends Component {
     })
   }
 
-  render() {
-    console.log(this.state.paymentTypes);
-    console.log(this.state.paymentTypes["BANK_CARD"]);
-    
+  render() {    
     return (
       <View style={{flex: 1}} >
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
