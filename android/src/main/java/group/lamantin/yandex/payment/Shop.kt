@@ -1,4 +1,4 @@
-package ru.whalemare.rn.library
+package group.lamantin.yandex.payment
 
 /**
  * @since 2019

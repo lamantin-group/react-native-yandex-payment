@@ -1,4 +1,4 @@
-package ru.whalemare.rn.library.result;
+package group.lamantin.yandex.payment.result;
 
 import android.content.Intent;
 import android.os.Bundle;

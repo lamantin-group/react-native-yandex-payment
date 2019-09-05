@@ -1,16 +1,15 @@
-package ru.whalemare.rn.library
+package group.lamantin.yandex.payment
 
 import androidx.fragment.app.FragmentActivity
 import com.facebook.react.bridge.*
-import ru.whalemare.rn.library.result.ActivityResultListener
-import ru.whalemare.rn.library.result.InlineActivityResult
-import ru.whalemare.rn.library.result.Result
+import group.lamantin.yandex.payment.result.ActivityResultListener
+import group.lamantin.yandex.payment.result.InlineActivityResult
+import group.lamantin.yandex.payment.result.Result
 import ru.yandex.money.android.sdk.*
 import java.math.BigDecimal
 import java.util.*
 
-
-class YandexPayment(val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
   override fun getName() = this.javaClass.simpleName
 
@@ -89,11 +88,15 @@ class YandexPayment(val reactContext: ReactApplicationContext) : ReactContextBas
   fun ReadableArray.toSetPayment(): Set<PaymentMethodType> {
     val set = mutableSetOf<PaymentMethodType>()
     (0 until this.size()).forEach { index ->
-      val string = this.getString(index)
-      string?.let {
-        val type = PaymentMethodType.valueOf(it)
-        set.add(type)
+      when (this.getString(index)) {
+        PaymentMethodType.BANK_CARD.name -> set.add(PaymentMethodType.BANK_CARD)
+        PaymentMethodType.YANDEX_MONEY.name -> set.add(PaymentMethodType.YANDEX_MONEY)
+        PaymentMethodType.SBERBANK.name -> set.add(PaymentMethodType.SBERBANK)
+        PaymentMethodType.GOOGLE_PAY.name, "PAY" -> set.add(PaymentMethodType.GOOGLE_PAY)
       }
+    }
+    if (set.isEmpty()) {
+      set.addAll(PaymentMethodType.values())
     }
     return set
   }

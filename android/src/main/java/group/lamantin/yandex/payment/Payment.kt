@@ -1,4 +1,4 @@
-package ru.whalemare.rn.library
+package group.lamantin.yandex.payment
 
 import ru.yandex.money.android.sdk.PaymentMethodType
 

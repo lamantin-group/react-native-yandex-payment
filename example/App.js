@@ -115,6 +115,7 @@ class App extends Component {
                 style={{flexDirection: 'row',}}
                 onPress={() => {
                   new SheetMenu({
+                    title: "Select currency:",
                     actions: [{
                       title: "RUB",
                       onPress: () => this.onSelectCurrency("RUB")

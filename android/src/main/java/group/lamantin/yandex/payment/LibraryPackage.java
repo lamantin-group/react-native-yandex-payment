@@ -1,5 +1,5 @@
 
-package ru.whalemare.rn.library;
+package group.lamantin.yandex.payment;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
