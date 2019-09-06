@@ -29,7 +29,7 @@ import {
 import SheetMenu from 'react-native-sheetmenu'
 
 import YandexPayment from 'react-native-payment'
-import SwitchView from './SwitchView';
+import SwitchView from './SwitchView'
 import config from './config'
 
 const Button = props => {
@@ -44,7 +44,7 @@ const Button = props => {
         ...props.style,
       }}
       onPress={props.onPress}>
-      <Text style={{textAlign: 'center',}}>{props.text}</Text>
+      <Text style={{ textAlign: 'center' }}>{props.text}</Text>
     </TouchableOpacity>
   )
 }
@@ -63,73 +63,106 @@ class App extends Component {
   changePaymentType = (checked, code) => {
     const paymentTypes = this.state.paymentTypes
     paymentTypes[code] = checked ? code : null
-    this.setState({paymentTypes})
+    this.setState({ paymentTypes })
   }
 
   onSelectCurrency = currency => {
     this.setState({
-      currency: currency
+      currency: currency,
     })
   }
 
-  render() {    
+  render() {
     return (
-      <View style={{flex: 1}} >
+      <View style={{ flex: 1 }}>
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
           <View>
-            <SwitchView 
-              title="BANK_CARD" 
-              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
-              checked={!!this.state.paymentTypes["BANK_CARD"]}
+            <SwitchView
+              title="BANK_CARD"
+              style={{
+                backgroundColor: '#fff',
+                paddingVertical: 8,
+                marginVertical: 1,
+                paddingHorizontal: 16,
+              }}
+              checked={!!this.state.paymentTypes['BANK_CARD']}
               onChanges={checked => {
-                this.changePaymentType(checked, "BANK_CARD")
-              }} 
+                this.changePaymentType(checked, 'BANK_CARD')
+              }}
             />
 
-            <SwitchView title="PAY"
-              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
-              checked={!!this.state.paymentTypes["PAY"]}
+            <SwitchView
+              title="PAY"
+              style={{
+                backgroundColor: '#fff',
+                paddingVertical: 8,
+                marginVertical: 1,
+                paddingHorizontal: 16,
+              }}
+              checked={!!this.state.paymentTypes['PAY']}
               onChanges={checked => {
-                this.changePaymentType(checked, "PAY")
-              }} 
+                this.changePaymentType(checked, 'PAY')
+              }}
             />
 
-            <SwitchView title="SBERBANK" 
-              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
-              checked={!!this.state.paymentTypes["SBERBANK"]}
+            <SwitchView
+              title="SBERBANK"
+              style={{
+                backgroundColor: '#fff',
+                paddingVertical: 8,
+                marginVertical: 1,
+                paddingHorizontal: 16,
+              }}
+              checked={!!this.state.paymentTypes['SBERBANK']}
               onChanges={checked => {
-                this.changePaymentType(checked, "SBERBANK")
-              }} 
+                this.changePaymentType(checked, 'SBERBANK')
+              }}
             />
 
-            <SwitchView title="YANDEX_MONEY"
-              style={{backgroundColor: "#fff", paddingVertical: 8, marginVertical: 1, paddingHorizontal: 16}}
-              checked={!!this.state.paymentTypes["YANDEX_MONEY"]}
+            <SwitchView
+              title="YANDEX_MONEY"
+              style={{
+                backgroundColor: '#fff',
+                paddingVertical: 8,
+                marginVertical: 1,
+                paddingHorizontal: 16,
+              }}
+              checked={!!this.state.paymentTypes['YANDEX_MONEY']}
               onChanges={checked => {
-                this.changePaymentType(checked, "YANDEX_MONEY")
-              }} 
+                this.changePaymentType(checked, 'YANDEX_MONEY')
+              }}
             />
 
-            <View style={{backgroundColor: "#fff", paddingVertical: 16, marginVertical: 16, paddingHorizontal: 16}}>
+            <View
+              style={{
+                backgroundColor: '#fff',
+                paddingVertical: 16,
+                marginVertical: 16,
+                paddingHorizontal: 16,
+              }}>
               <TouchableOpacity
-                style={{flexDirection: 'row',}}
+                style={{ flexDirection: 'row' }}
                 onPress={() => {
                   new SheetMenu({
-                    title: "Select currency:",
-                    actions: [{
-                      title: "RUB",
-                      onPress: () => this.onSelectCurrency("RUB")
-                    }, {
-                      title: "EUR",
-                      onPress: () => this.onSelectCurrency("EUR")
-                    }, {
-                      title: "USD",
-                      onPress: () => this.onSelectCurrency("USD")
-                    }]
+                    title: 'Select currency:',
+                    actions: [
+                      {
+                        title: 'RUB',
+                        onPress: () => this.onSelectCurrency('RUB'),
+                      },
+                      {
+                        title: 'EUR',
+                        onPress: () => this.onSelectCurrency('EUR'),
+                      },
+                      {
+                        title: 'USD',
+                        onPress: () => this.onSelectCurrency('USD'),
+                      },
+                    ],
                   }).show()
                 }}>
-                  <Text style={{flexGrow: 1}}>Currency</Text>
-                  <Text>{this.state.currency}</Text>
+                <Text style={{ flexGrow: 1 }}>Currency</Text>
+                <Text>{this.state.currency}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -158,6 +191,7 @@ class App extends Component {
                 }
               )
               alert(JSON.stringify(result))
+              console.warn(JSON.stringify(result))
             }}
           />
         </ScrollView>

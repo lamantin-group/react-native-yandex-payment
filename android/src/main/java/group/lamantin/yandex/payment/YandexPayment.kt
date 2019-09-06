@@ -43,7 +43,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
 
   private fun startTokenizer(shop: Shop,
                              payment: Payment,
-                             onSuccess: (token: String, paymentMethodType: PaymentMethodType) -> Unit,
+                             onSuccessPayment: (token: String, paymentMethodType: PaymentMethodType) -> Unit,
                              onError: (throwable: Throwable) -> Unit) {
     val paymentParameters = PaymentParameters(
       Amount(BigDecimal(payment.amount), Currency.getInstance(payment.currency)),
@@ -64,7 +64,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
       intent, object: ActivityResultListener {
         override fun onSuccess(result: Result) {
           val (paymentToken, paymentMethodType) = Checkout.createTokenizationResult(result.data!!)
-          onSuccess.invoke(paymentToken, paymentMethodType)
+          onSuccessPayment.invoke(paymentToken, paymentMethodType)
         }
 
         override fun onFailed(result: Result?) {
