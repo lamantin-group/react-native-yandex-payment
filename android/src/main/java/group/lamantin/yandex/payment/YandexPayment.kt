@@ -36,7 +36,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
       types = map.getArray(PAYMENT_TYPES_ARRAY)!!.toSetPayment()
     )
     startTokenizer(shop, payment,
-      { token: String, type: PaymentMethodType -> callback.invoke(token, type) },
+      { token: String, type: PaymentMethodType -> callback.invoke(token, type.name) },
       { callback.invoke(null, null)}
     )
   }
@@ -63,8 +63,8 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
       currentActivity as FragmentActivity,
       intent, object: ActivityResultListener {
         override fun onSuccess(result: Result) {
-          val (paymentToken, paymentMethodType) = Checkout.createTokenizationResult(result.data!!)
-          onSuccessPayment.invoke(paymentToken, paymentMethodType)
+          val tokenizationResult: TokenizationResult = Checkout.createTokenizationResult(result.data!!)
+          onSuccessPayment.invoke(tokenizationResult.paymentToken, tokenizationResult.paymentMethodType)
         }
 
         override fun onFailed(result: Result?) {

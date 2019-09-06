@@ -25,7 +25,7 @@ public class InlineActivityResult {
     private final List<FailCallback> failCallbacks = new ArrayList<>();
 
     //the listener we will give to the fragment
-    private final ActivityResultFragment.ActivityResultListener listener = new ActivityResultFragment.ActivityResultListener() {
+    private final TransparentActivity.ActivityResultListener listener = new TransparentActivity.ActivityResultListener() {
         @Override
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
             onReceivedActivityResult(requestCode, resultCode, data);
@@ -118,17 +118,22 @@ public class InlineActivityResult {
 //        final ActivityResultFragment oldFragment = (ActivityResultFragment) activity
 //            .getSupportFragmentManager()
 //            .findFragmentByTag(TAG);
-
-        final ActivityResultFragment fragment = ActivityResultFragment.newInstance(intent);
-        fragment.setListener(listener);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                activity.getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(fragment, TAG)
-                    .commitNowAllowingStateLoss();
+                activity.startActivity(TransparentActivity.intentForResult(activity, intent, listener));
             }
         });
+//        final ActivityResultFragment fragment = ActivityResultFragment.newInstance(intent);
+//        fragment.setListener(listener);
+//        activity.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                activity.getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .add(fragment, TAG)
+//                    .commitNowAllowingStateLoss();
+//            }
+//        });
     }
 }
