@@ -1,1 +1,3 @@
-export * from './src/YandexPayment'
+import { YandexPayment } from './src/YandexPayment'
+
+export default YandexPayment

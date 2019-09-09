@@ -24,5 +24,6 @@
     "declaration": true,
     "emitDeclarationOnly": true
   },
+  "compileOnSave": true,
   "exclude": ["build", "node_modules", "example", "scripts"]
 }
