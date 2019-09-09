@@ -1,5 +1,5 @@
-import React, { PureComponent, Component } from 'react'
-import { View, Text, Switch, ViewStyle } from 'react-native'
+import React, { Component } from 'react'
+import { Switch, Text, View, ViewStyle } from 'react-native'
 
 interface SwitchViewProps {
   title: string
@@ -54,17 +54,26 @@ export default class SwitchView extends Component<SwitchViewProps, SwitchViewSta
   }
 
   render() {
-    const { title, description, descriptionUncheked, onChanges, style, styleSwitch, internal } = this.props
+    const {
+      title,
+      description,
+      descriptionUncheked,
+      onChanges,
+      style,
+      styleSwitch,
+      internal,
+    } = this.props
     const checked = internal ? this.state.checked : this.props.checked
-    const selectedDescription = checked ? description : (descriptionUncheked ? descriptionUncheked : description)
+    const fallback = descriptionUncheked ? descriptionUncheked : description
+    const selectedDescription = checked ? description : fallback
     return (
       <View style={{ flexDirection: 'row', alignItems: 'center', ...style }}>
         <View style={{ flexGrow: 1, flexShrink: 1 }}>
-          {title && <Text style={{fontWeight: '500'}}>{title}</Text>}
-          {selectedDescription && <Text style={[{marginTop: 8}]}>{selectedDescription}</Text> }
+          {title && <Text style={{ fontWeight: '500' }}>{title}</Text>}
+          {selectedDescription && <Text style={[{ marginTop: 8 }]}>{selectedDescription}</Text>}
         </View>
         <Switch
-          style={{marginStart: 16}}
+          style={{ marginStart: 16 }}
           value={checked}
           onValueChange={checkedChanges => {
             if (internal) {
