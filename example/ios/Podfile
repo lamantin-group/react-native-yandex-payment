@@ -1,5 +1,7 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
+# use_modular_headers!
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+plugin 'cocoapods-fix-react-native'
 
 target 'example' do
   # Pods for example
@@ -27,14 +29,25 @@ target 'example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'NativeLibrary', :path => '../node_modules/react-native-payment'
+  # todo: change to node_modules path in real application
+  pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
+
+  pod 'YandexCheckoutPayments',
+    :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
+    :tag => '2.2.0',
+    :modular_headers => true
+
+  pod 'YandexLoginSDK',
+    :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
+    :tag => '2.0.2',
+    :modular_headers => true
 
   target 'exampleTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  use_native_modules!
+  # use_native_modules!
 end
 
 target 'example-tvOS' do

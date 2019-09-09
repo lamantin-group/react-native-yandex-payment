@@ -6,8 +6,7 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-payment.git",
-    "start:first": "npm i && cd example && npm i && npm run android"
+    "url": "git+https://github.com/lamantingroup/react-native-yandex-payment.git"
   },
   "keywords": [
     "react-native-yandex-payment",
@@ -22,18 +21,24 @@
     "react-native",
     "lamantin.group"
   ],
-  "main": "index.js",
+  "main": "index.ts",
+  "types": "build/index.d.ts",
   "scripts": {
+    "prepublish": "tsc",
     "start": "react-native start",
-    "install:deps": "npm install && cd example && npm install",
-    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm install && cd example && npm install",
+    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm run install:deps",
+    "install:deps": "npm install && cd example && npm install && cd ios && pod install && cd .. && cd .. && cd ios && pod install",
     "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
-    "android": "cd example && npm run android"
+    "android": "cd example && npm run android",
+    "ios": "cd example && npm run ios"
   },
   "peerDependencies": {
     "react-native": "^0.41.2"
   },
   "devDependencies": {
+    "@types/react-native": "^0.60.13",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",
@@ -52,7 +57,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "prettier-eslint": "^9.0.0",
     "react": "16.8.6",
-    "react-native": "0.60.4",
+    "react-native": "0.60.5",
     "typescript": "^3.4.3"
   },
   "dependencies": {}

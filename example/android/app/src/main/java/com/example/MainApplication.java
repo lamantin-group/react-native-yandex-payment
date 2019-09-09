@@ -10,7 +10,7 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.List;
 
-import ru.whalemare.rn.library.LibraryPackage;
+import group.lamantin.yandex.payment.LibraryPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 

@@ -1,16 +1,14 @@
-type PaymentType = "YANDEX_MONEY" | "GOOGLE_PAY" | "BANK_CARD" | "SBERBANK"
+// todo: change GOOGLE_PAY to PAY that indicates APPLE_PAY and GOOGLE_PAY
+type PaymentType = 'YANDEX_MONEY' | 'GOOGLE_PAY' | 'BANK_CARD' | 'SBERBANK' | 'PAY'
+type Currency = 'RUB' | 'USD' | 'EUR'
 
 export interface Payment {
-
   /**
    * Amount of the payment (price)
    */
   amount: number
 
-  /**
-   * List of available currencies: https://www.ibm.com/support/knowledgecenter/en/SSZLC2_7.0.0/com.ibm.commerce.payments.developer.doc/refs/rpylerl2mst97.htm
-   */
-  currency: string
-  
+  currency: Currency
+
   types: PaymentType[]
 }

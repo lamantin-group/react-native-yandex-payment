@@ -1,4 +1,4 @@
-import { Payment } from './Payment';
+import { Payment } from './Payment'
 
 export interface TestParam {
   /**
@@ -24,17 +24,17 @@ export interface MockConfiguration {
   /**
    * complete payment with error
    */
-  completeWithError?: Boolean
+  completeWithError?: boolean
 
   /**
    * get preauthorized user
    */
-  paymentAuthPassed?: Boolean
+  paymentAuthPassed?: boolean
 
   /**
    * number of linked cards for authorized user
    */
-  linkedCardsCount?: number,
+  linkedCardsCount?: number
 
   /**
    * refactor: type of payment is unused here, remove it

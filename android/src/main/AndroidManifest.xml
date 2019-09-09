@@ -1,9 +1,12 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ru.whalemare.rn.library">
+          package="group.lamantin.yandex.payment">
 
   <application>
-    <activity android:name=".TransparentActivity" android:theme="@style/Theme.Transparent" />
+    <activity
+      android:name=".result.TransparentActivity"
+      android:theme="@style/Theme.Transparent"
+      />
   </application>
 
 </manifest>

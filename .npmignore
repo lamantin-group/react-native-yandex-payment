@@ -1,0 +1,31 @@
+# Logs
+*.log
+npm-debug.log
+
+# Runtime data
+tmp
+build
+dist
+
+# Dependency directory
+node_modules
+Pods
+
+# Environment
+.github
+.vscode
+.idea
+.eslintrc.js
+.gitattributes
+.gitignore
+.npmignore
+.prettierrc
+
+# Build configs
+.build
+.gradle
+
+# Example
+example
+local.properties
+scripts
