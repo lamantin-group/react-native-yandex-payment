@@ -6,7 +6,7 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whalemare/react-native-payment.git"
+    "url": "git+https://github.com/lamantingroup/react-native-yandex-payment.git"
   },
   "keywords": [
     "react-native-yandex-payment",
@@ -21,8 +21,10 @@
     "react-native",
     "lamantin.group"
   ],
-  "main": "index.js",
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
   "scripts": {
+    "prepublish": "tsc",
     "start": "react-native start",
     "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && npm run install:deps",
     "install:deps": "npm install && cd example && npm install && cd ios && pod install && cd .. && cd .. && cd ios && pod install",
@@ -34,10 +36,11 @@
     "react-native": "^0.41.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
+    "@types/react-native": "^0.60.13",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-react": "^1.1.7",

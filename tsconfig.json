@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "declaration": true,
+    "outDir": "build"
+  },
+  "exclude": ["node_modules", "build", "example", "android", "ios", ".github", ".vscode", "scripts", "babel.config.js", "metro.config.js", "jest.config.js"]
+}
