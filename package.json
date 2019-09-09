@@ -21,8 +21,8 @@
     "react-native",
     "lamantin.group"
   ],
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
+  "main": "index.ts",
+  "types": "build/index.d.ts",
   "scripts": {
     "prepublish": "tsc",
     "start": "react-native start",
