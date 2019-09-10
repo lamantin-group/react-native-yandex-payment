@@ -3,6 +3,10 @@ What is it
 
 Library for implement Yandex Checkout functionality on React Native environment.
 
+Android library: [2.3.0](https://github.com/yandex-money/yandex-checkout-android-sdk)
+
+iOS library: [2.2.0](https://github.com/yandex-money/yandex-checkout-payments-swift)
+
 ![v1](./.github/v1.gif)
 
 Usage
@@ -111,8 +115,7 @@ Install pods in `ios`
 pod install
 ```
 
-Open newly generated `.xcworkspace` in XCode
-Create new swift file with XCode
+Open newly generated `.xcworkspace` in XCode and create new swift file. 
 Be sure, that it have Foundation import
 ```swift
 import Foundation
