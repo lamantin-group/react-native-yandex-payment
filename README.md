@@ -8,20 +8,26 @@ Library for implement Yandex Checkout functionality on React Native environment.
 Example
 -------
 
-```js
-import YandexPayment from 'react-native-payment'
+Usage
+=====
 
-const { token, type } = await YandexPayment.show({
-    id: "SHOP_ID",
-    token: "live_or_test_SHOP_TOKEN",
-    name: 'React shop',
-    description: `Your wondering shop description`,
-}, {
-    amount: 1.01,
-    currency: "RUB",
-    types: ["BANK_CARD", "SBERBANK"],
-})
-sendTokenAndPaymentTypeToBackend(token, type)
+```ts
+import YandexPayment, { Shop, Payment, PaymentToken } from 'react-native-yandex-payment';
+
+const shop: Shop = {
+    id: 'SHOP_ID',
+    token: 'test_SHOP_TOKEN',
+    name: 'Shop name',
+    description: 'Shop description',
+}
+const payment: Payment = {
+    amount: 399.99,
+    currency: 'RUB', // 'RUB' | 'USD' | 'EUR'
+    types: ['BANK_CARD'], // 'YANDEX_MONEY' | 'BANK_CARD' | 'SBERBANK' | 'PAY'. PAY - means Google Pay or Apple Pay
+}
+const paymentToken: PaymentToken = await YandexPayment.show(shop, payment)
+console.warn(paymentToken.token) // payment token
+console.warn(paymentToken.type) // payment method type
 ```
 
 Install
@@ -70,25 +76,6 @@ android {
         manifestPlaceholders = [YANDEX_CLIENT_ID: "ваш id приложения в Яндекс.Паспорте"]
     }
 }
-```
-
-Usage
-=====
-
-```ts
-
-const shop: Shop = {
-    id: 'SHOP_ID',
-    token: 'test_SHOP_TOKEN',
-    name: 'Shop name',
-    description: 'Shop description',
-};
-const payment: Payment = {
-    amount: 399.99,
-    currency: 'RUB',
-    types: ['BANK_CARD'],
-};
-YandexPayment.show(shop, payment);
 ```
 
 Roadmap
