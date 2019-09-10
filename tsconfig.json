@@ -22,7 +22,7 @@
     "strict": true,
     "target": "esnext",
     "declaration": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
   },
   "compileOnSave": true,
   "exclude": ["build", "node_modules", "example", "scripts"]

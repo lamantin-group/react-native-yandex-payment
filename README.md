@@ -72,6 +72,25 @@ android {
 }
 ```
 
+Usage
+=====
+
+```ts
+
+const shop: Shop = {
+    id: 'SHOP_ID',
+    token: 'test_SHOP_TOKEN',
+    name: 'Shop name',
+    description: 'Shop description',
+};
+const payment: Payment = {
+    amount: 399.99,
+    currency: 'RUB',
+    types: ['BANK_CARD'],
+};
+YandexPayment.show(shop, payment);
+```
+
 Roadmap
 --------
 
