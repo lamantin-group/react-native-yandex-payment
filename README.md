@@ -129,7 +129,7 @@ cd ios && mkdir Frameworks
 Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
 
 Be sure, that TrustDefender has Header folder inside it
-![v1](./.github/trustdefender.png)
+![trustdefender](./.github/trustdefender.png)
 
 Roadmap
 =======
