@@ -78,6 +78,35 @@ android {
 }
 ```
 
+iOS
+---
+
+Create `Frameworks` directory inside `ios` folder
+```bash
+cd ios && mkdir Frameworks
+```
+
+Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
+
+Add Pods to your `ios/Podfile`
+```ruby
+ENV['SWIFT_VERSION'] = '4'
+
+target 'MyApp' do
+    pod 'MyFramework', :path => '../node_modules/react-native-yandex-payment/ios/MyFramework.podspec'
+
+    pod 'YandexCheckoutPayments',
+        :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
+        :tag => '2.2.0',
+        :modular_headers => true
+
+    pod 'YandexLoginSDK',
+        :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
+        :tag => '2.0.2',
+        :modular_headers => true
+end
+```
+
 Roadmap
 --------
 
