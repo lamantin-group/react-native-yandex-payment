@@ -81,18 +81,12 @@ android {
 iOS
 ---
 
-Create `Frameworks` directory inside `ios` folder
-```bash
-cd ios && mkdir Frameworks
-```
-
-Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
-
-Add Pods to your `ios/Podfile`
+Update your `ios/Podfile`
 ```ruby
-ENV['SWIFT_VERSION'] = '4'
-
 target 'MyApp' do
+
+    # ... other dependencies
+
     pod 'MyFramework', :path => '../node_modules/react-native-yandex-payment/ios/MyFramework.podspec'
 
     pod 'YandexCheckoutPayments',
@@ -105,7 +99,37 @@ target 'MyApp' do
         :tag => '2.0.2',
         :modular_headers => true
 end
+
+pre_install do |installer|
+	installer.analysis_result.specifications.each do |s|
+        if s.name == 'When'
+            s.swift_version = '4.2'
+        end
+    end
+end
 ```
+
+Install pods in `ios`
+```bash
+pod install
+```
+
+Open newly generated `.xcworkspace` in XCode
+Create new swift file with XCode
+Be sure, that it have Foundation import
+```swift
+import Foundation
+```
+
+Create `Frameworks` directory inside `ios` folder
+```bash
+cd ios && mkdir Frameworks
+```
+
+Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
+
+Be sure, that TrustDefender has Header folder inside it
+![v1](./.github/trustdefender.png)
 
 Roadmap
 --------
