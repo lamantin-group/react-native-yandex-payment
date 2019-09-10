@@ -5,9 +5,6 @@ Library for implement Yandex Checkout functionality on React Native environment.
 
 ![v1](./.github/v1.gif)
 
-Example
--------
-
 Usage
 =====
 
@@ -132,7 +129,7 @@ Be sure, that TrustDefender has Header folder inside it
 ![v1](./.github/trustdefender.png)
 
 Roadmap
---------
+=======
 
 - [x] React Native 60.5
 - [x] Types embedded
