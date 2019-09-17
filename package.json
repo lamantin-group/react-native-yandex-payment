@@ -6,7 +6,7 @@
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lamantingroup/react-native-yandex-payment.git"
+    "url": "git+https://github.com/lamantin-group/react-native-yandex-payment.git"
   },
   "keywords": [
     "react-native-yandex-payment",
