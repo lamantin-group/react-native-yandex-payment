@@ -21,7 +21,6 @@ Pods
 .prettierrc
 
 # Build configs
-.build
 .gradle
 
 # Example
