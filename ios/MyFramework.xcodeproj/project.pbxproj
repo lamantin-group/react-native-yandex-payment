@@ -358,7 +358,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.whalemare.MyFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = group.lamantin.yandexpayment;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MyFramework/MyFramework-Bridging-Header.h";
@@ -393,7 +393,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.whalemare.MyFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = group.lamantin.yandexpayment;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MyFramework/MyFramework-Bridging-Header.h";

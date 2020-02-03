@@ -16,16 +16,16 @@ module.exports = {
     }),
   },
 
-  projectRoot: path.resolve(__dirname, 'example'),
-  watchFolders: [__dirname],
+  // projectRoot: path.resolve(__dirname, 'example'),
+  // watchFolders: [__dirname],
 
-  resolver: {
-    blacklistRE: blacklist([
-      new RegExp(`^${escape(path.resolve(__dirname, 'node_modules'))}\\/.*$`),
-    ]),
-    providesModuleNodeModules: ['@babel/runtime', ...peerDependencies],
-    extraNodeModules: {
-      'react-native-payment': __dirname,
-    },
-  },
+  // resolver: {
+  //   blacklistRE: blacklist([
+  //     new RegExp(`^${escape(path.resolve(__dirname, 'node_modules'))}\\/.*$`),
+  //   ]),
+  //   providesModuleNodeModules: ['@babel/runtime', ...peerDependencies],
+  //   extraNodeModules: {
+  //     'react-native-payment': __dirname,
+  //   },
+  // },
 }

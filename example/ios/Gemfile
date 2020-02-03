@@ -1,0 +1,5 @@
+source "https://rubygems.org"  # where gems will be downloaded from
+ruby "2.6.3"  # ruby version, change for the one you use
+
+gem "cocoapods"
+gem "cocoapods-fix-react-native"

@@ -6,31 +6,13 @@
  * @flow
  */
 
-import React, { Fragment, Component } from 'react'
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  Alert,
-  Platform,
-} from 'react-native'
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen'
-import SheetMenu from 'react-native-sheetmenu'
-
+import React, { Component } from 'react'
+import { Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import YandexPayment from 'react-native-payment'
-import SwitchView from './SwitchView'
+import SheetMenu from 'react-native-sheetmenu'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 import config from './config'
+import SwitchView from './SwitchView'
 
 const Button = props => {
   return (
