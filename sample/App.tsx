@@ -7,7 +7,7 @@
  * @flow
  */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Alert,
   Button,
@@ -43,6 +43,13 @@ const App = () => {
     payload[code] = checked
     setPayments(payload)
   }
+
+  useEffect(() => {
+    const invalidConfig = config.id === '000000' || !config.id
+    if (invalidConfig) {
+      console.warn('You should override sample/config.ts file with creds for your shop')
+    }
+  }, [config])
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
