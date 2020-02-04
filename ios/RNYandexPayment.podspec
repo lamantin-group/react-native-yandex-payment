@@ -2,7 +2,7 @@
 
 require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+package = JSON.parse(File.read(File.join(__dir__, "../package.json")))
 
 Pod::Spec.new do |spec|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -29,8 +29,8 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '9.0'
   spec.source       = { git: 'https://github.com/lamantin-group/react-native-yandex-payment', tag: spec.version.to_s }
 
-  spec.source_files = '**/*.swift'
+  spec.source_files = 'RNYandexPayment'
   spec.dependency 'React'
   spec.dependency 'YandexCheckoutPayments', '2.2.0'
-  spec.public_header_files = '**/*.h'
+  # spec.public_header_files = '**/*.h'
 end

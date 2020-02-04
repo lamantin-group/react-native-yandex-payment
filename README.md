@@ -1,7 +1,6 @@
-What is it
-----------
+# What is it
 
-Library for implement Yandex Checkout functionality on React Native environment.
+Library for implement Yandex Checkout on React Native
 
 Android library: [2.3.0](https://github.com/yandex-money/yandex-checkout-android-sdk)
 
@@ -9,8 +8,7 @@ iOS library: [2.2.0](https://github.com/yandex-money/yandex-checkout-payments-sw
 
 ![v1](./.github/v1.gif)
 
-Usage
-=====
+# Usage
 
 ```ts
 import YandexPayment, { Shop, Payment, PaymentToken } from 'react-native-yandex-payment';
@@ -31,19 +29,17 @@ console.warn(paymentToken.token) // payment token
 console.warn(paymentToken.type) // payment method type
 ```
 
-Install
-=======
+# Install
 
-```bash
-npm install react-native-yandex-payment --save 
-```
-or
 ```bash
 yarn add react-native-yandex-payment
 ```
+or
+```bash
+npm install react-native-yandex-payment --save 
+```
 
-Android
--------
+### Android
 
 Add Yandex repository inside `android/build.gradle`
 ```groovy
@@ -79,8 +75,7 @@ android {
 }
 ```
 
-iOS
----
+### iOS
 
 Update your `ios/Podfile`
 ```ruby
@@ -121,6 +116,8 @@ Be sure, that it have Foundation import
 import Foundation
 ```
 
+#### TrustDefender
+
 Create `Frameworks` directory inside `ios` folder
 ```bash
 cd ios && mkdir Frameworks
@@ -131,8 +128,24 @@ Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your o
 Be sure, that TrustDefender has Header folder inside it
 ![trustdefender](./.github/trustdefender.png)
 
-Roadmap
-=======
+## Run sample
+### iOS
+
+1. Clone project and install dependencies
+```
+git clone https://github.com/lamantin-group/react-native-yandex-payment
+cd react-native-yandex-payment
+yarn
+cd sample
+yarn
+cd ios
+pod install
+```
+2. Add `TrustDefender.framework` as described in [installation process](#TrustDefender)
+
+3. Go to `react-native-yandex-payment/sample` and run `yarn ios`
+
+## Roadmap
 
 - [x] React Native 60.5
 - [x] Types embedded
