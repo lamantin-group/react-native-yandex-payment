@@ -83,8 +83,6 @@ target 'MyApp' do
 
     # ... other dependencies
 
-    pod 'RNYandexPayment', :path => '../node_modules/react-native-yandex-payment/ios/RNYandexPayment.podspec'
-
     pod 'YandexCheckoutPayments',
         :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
         :tag => '2.2.0',
@@ -125,25 +123,44 @@ cd ios && mkdir Frameworks
 
 Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
 
-Be sure, that TrustDefender has Header folder inside it
+Be sure, that TrustDefender has Header folder inside it. 
 ![trustdefender](./.github/trustdefender.png)
+If it not exist, dragn-and-drop it again to `Frameworks` folder in XCode window with `copy` option.
 
 ## Run sample
+
+Modify `sample/config.ts` file with your shop credentials.
+
+### Android
+1. Clone project and install dependencies
+    ```bash
+    git clone https://github.com/lamantin-group/react-native-yandex-payment
+    cd react-native-yandex-payment
+    yarn install
+    ```
+2. Just run 
+    ```bash
+    yarn android
+    ```
+
 ### iOS
 
 1. Clone project and install dependencies
-```
-git clone https://github.com/lamantin-group/react-native-yandex-payment
-cd react-native-yandex-payment
-yarn
-cd sample
-yarn
-cd ios
-pod install
-```
+    ```bash
+    git clone https://github.com/lamantin-group/react-native-yandex-payment
+    cd react-native-yandex-payment
+    yarn
+    cd sample
+    yarn
+    cd ios
+    pod install
+    ```
 2. Add `TrustDefender.framework` as described in [installation process](#TrustDefender)
 
-3. Go to `react-native-yandex-payment/sample` and run `yarn ios`
+3. Run project
+    ```bash
+    yarn ios
+    ```
 
 ## Roadmap
 

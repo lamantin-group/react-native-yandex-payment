@@ -28,11 +28,9 @@
     "prepublish": "yarn build",
     "build": "tsc",
     "start": "react-native start",
-    "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && yarn run install:deps",
-    "install:deps": "yarn install && cd example && yarn install && cd ios && pod install && cd .. && cd .. && cd ios && pod install",
     "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
-    "android": "cd example && yarn run android && cd ..",
-    "ios": "cd example && yarn run ios && cd .."
+    "android": "cd sample && yarn android && cd ..",
+    "ios": "cd sample && yarn ios && cd .."
   },
   "dependencies": {},
   "peerDependencies": {
