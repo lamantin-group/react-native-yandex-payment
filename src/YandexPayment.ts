@@ -1,12 +1,7 @@
 import { PaymentToken } from './PaymentToken'
 import { Payment } from './Payment'
 import { Shop } from './Shop'
-// import { NativeModules } from 'react-native'
-
-// TODO: check hypotises
-const NativeModules = {} as any
-
-const YandexPaymentNative = NativeModules.YandexPayment
+import { NativeModules } from 'react-native'
 
 export class YandexPayment {
   /**
@@ -15,7 +10,7 @@ export class YandexPayment {
    */
   static async show(shop: Shop, payment: Payment): Promise<PaymentToken> {
     return new Promise(async (resolve, reject) => {
-      YandexPaymentNative.attach(
+      NativeModules.YandexPayment.attach(
         {
           SHOP_ID: shop.id,
           SHOP_TOKEN: shop.token,

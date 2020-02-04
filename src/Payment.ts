@@ -1,6 +1,6 @@
 // todo: change GOOGLE_PAY to PAY that indicates APPLE_PAY and GOOGLE_PAY
-type PaymentType = 'YANDEX_MONEY' | 'GOOGLE_PAY' | 'BANK_CARD' | 'SBERBANK' | 'PAY'
-type Currency = 'RUB' | 'USD' | 'EUR'
+export type PaymentType = 'YANDEX_MONEY' | 'GOOGLE_PAY' | 'BANK_CARD' | 'SBERBANK' | 'PAY'
+export type Currency = 'RUB' | 'USD' | 'EUR'
 
 export interface Payment {
   /**

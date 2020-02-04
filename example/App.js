@@ -12,7 +12,7 @@ import YandexPayment from 'react-native-payment'
 import SheetMenu from 'react-native-sheetmenu'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import config from './config'
-import SwitchView from './SwitchView'
+import SwitchView from '../sample/SwitchView'
 
 const Button = props => {
   return (
