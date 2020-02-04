@@ -147,7 +147,7 @@ pod install
 
 ## Roadmap
 
-- [x] React Native 60.5
+- [x] React Native 0.61.5
 - [x] Types embedded
 - [x] Android support
 - [x] iOS support
