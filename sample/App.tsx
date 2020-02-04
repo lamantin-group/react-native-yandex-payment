@@ -8,14 +8,20 @@
  */
 
 import React, { useState } from 'react'
-import { Button, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import YandexPayment, { PaymentType, Currency } from 'react-native-yandex-payment'
+import {
+  Alert,
+  Button,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import SheetMenu from 'react-native-sheetmenu'
+import YandexPayment, { Currency, PaymentType } from 'react-native-yandex-payment'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { SwitchView } from './SwitchView'
-import SheetMenu from 'react-native-sheetmenu'
-import { Platform } from 'react-native'
-import { Alert } from 'react-native'
-import { Switch } from 'react-native'
 
 const config = {
   id: 'PUT HERE YOUR SHOP_ID',
@@ -31,7 +37,6 @@ const App = () => {
     YANDEX_MONEY: false,
     GOOGLE_PAY: false,
   })
-  const [checked, setChecked] = useState(false)
 
   function onSelectCurrency(currency: Currency) {
     setCurrency(currency)
@@ -42,8 +47,6 @@ const App = () => {
     payload[code] = checked
     setPayments(payload)
   }
-
-  const checkeBankCard = paymentTypesMap['BANK_CARD']
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
