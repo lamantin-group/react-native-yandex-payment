@@ -1,12 +1,5 @@
 {
   "presets": [
-    "module:metro-react-native-babel-preset",
-  ],
-  "plugins": [
-    ["module-resolver", {
-      "alias": {
-        "react-native-payment": ".."
-      }
-    }]
+    "module:metro-react-native-babel-preset"
   ]
 }

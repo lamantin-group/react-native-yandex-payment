@@ -2,18 +2,19 @@
   "name": "example",
   "version": "0.0.1",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator='iPhone SE'"
+    "ios": "react-native run-ios"
   },
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-sheetmenu": "1.0.1",
-    "react-native-yandex-payment": "1.0.5"
+    "react-native-yandex-payment": "file:../"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

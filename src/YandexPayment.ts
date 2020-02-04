@@ -1,7 +1,10 @@
 import { PaymentToken } from './PaymentToken'
 import { Payment } from './Payment'
 import { Shop } from './Shop'
-import { NativeModules } from 'react-native'
+// import { NativeModules } from 'react-native'
+
+// TODO: check hypotises
+const NativeModules = {} as any
 
 const YandexPaymentNative = NativeModules.YandexPayment
 

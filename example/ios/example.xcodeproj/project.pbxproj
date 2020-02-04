@@ -20,7 +20,7 @@
 		A74A6171231E50A6006B8E7A /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A74A6170231E50A6006B8E7A /* libPods-example.a */; };
 		A74A6173231F5C26006B8E7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A74A6172231F5C26006B8E7A /* UIKit.framework */; };
 		A74A6175231F5E40006B8E7A /* ExampleSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A6174231F5E40006B8E7A /* ExampleSwift.swift */; };
-		A74A6195231F80BA006B8E7A /* libMyFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A74A6194231F80BA006B8E7A /* libMyFramework.a */; };
+		A74A6195231F80BA006B8E7A /* libRNYandexPayment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A74A6194231F80BA006B8E7A /* libRNYandexPayment.a */; };
 		A7E341AF23E83E4200DF623B /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E341AE23E83E4200DF623B /* TrustDefender.framework */; };
 		C6FF29ABA9147D0E617AD23E /* libPods-example-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B330FD03485870ACC38B246 /* libPods-example-tvOS.a */; };
 		D52DA031162C281DD0287BE5 /* libPods-exampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C18E32910BE82298804D0DD0 /* libPods-exampleTests.a */; };
@@ -70,7 +70,7 @@
 		A74A6170231E50A6006B8E7A /* libPods-example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74A6172231F5C26006B8E7A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A74A6174231F5E40006B8E7A /* ExampleSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSwift.swift; sourceTree = "<group>"; };
-		A74A6194231F80BA006B8E7A /* libMyFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMyFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74A6194231F80BA006B8E7A /* libRNYandexPayment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNYandexPayment.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E341AE23E83E4200DF623B /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefender.framework; sourceTree = "<group>"; };
 		C18E32910BE82298804D0DD0 /* libPods-exampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-exampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC21C7C58031652D5025D463 /* libPods-example-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-example-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74A6195231F80BA006B8E7A /* libMyFramework.a in Frameworks */,
+				A74A6195231F80BA006B8E7A /* libRNYandexPayment.a in Frameworks */,
 				A74A6173231F5C26006B8E7A /* UIKit.framework in Frameworks */,
 				A7E341AF23E83E4200DF623B /* TrustDefender.framework in Frameworks */,
 				A74A6171231E50A6006B8E7A /* libPods-example.a in Frameworks */,
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A7E341AE23E83E4200DF623B /* TrustDefender.framework */,
-				A74A6194231F80BA006B8E7A /* libMyFramework.a */,
+				A74A6194231F80BA006B8E7A /* libRNYandexPayment.a */,
 				A74A6172231F5C26006B8E7A /* UIKit.framework */,
 				A74A6170231E50A6006B8E7A /* libPods-example.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,

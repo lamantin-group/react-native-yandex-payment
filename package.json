@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "author": "lamantin.group",
   "description": "Library for implement Yandex Checkout",
-  "license": "Apache 2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lamantin-group/react-native-yandex-payment.git"
@@ -24,15 +24,15 @@
   "main": "index.ts",
   "types": "build/index.d.ts",
   "scripts": {
-    "postinstall": "rm -rf example/node_modules/react-native-yandex-payment && mkdir example/node_modules/react-native-yandex-payment && rsync -av --progress . example/node_modules/react-native-yandex-payment --exclude example --exclude node_modules --exclude .git",
+    "postinstall": "rm -rf sample/node_modules/react-native-yandex-payment && mkdir sample/node_modules/react-native-yandex-payment && rsync -av --progress . sample/node_modules/react-native-yandex-payment --exclude example --exclude sample --exclude node_modules --exclude .git",
     "prepublish": "yarn build",
     "build": "tsc",
     "start": "react-native start",
     "doctor": "rm -rf node_modules && rm -f package-lock.json && rm -rf example/node_modules && rm -f example/package-lock.json && yarn run install:deps",
     "install:deps": "yarn install && cd example && yarn install && cd ios && pod install && cd .. && cd .. && cd ios && pod install",
     "git:reset": "rm -rf .git && git init && git add -A && git commit -m 'Initial commit'",
-    "android": "cd example && yarn run android",
-    "ios": "cd example && yarn run ios"
+    "android": "cd example && yarn run android && cd ..",
+    "ios": "cd example && yarn run ios && cd .."
   },
   "dependencies": {},
   "peerDependencies": {

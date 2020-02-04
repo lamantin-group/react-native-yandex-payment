@@ -1,10 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const path = require('path')
-const blacklist = require('metro-config/src/defaults/blacklist')
-const escape = require('escape-string-regexp')
-const pak = require('./package.json')
+// const path = require('path')
+// const blacklist = require('metro-config/src/defaults/blacklist')
+// const escape = require('escape-string-regexp')
+// const pak = require('./package.json')
 
-const peerDependencies = Object.keys(pak.peerDependencies)
+// const peerDependencies = Object.keys(pak.peerDependencies)
 
 module.exports = {
   transformer: {

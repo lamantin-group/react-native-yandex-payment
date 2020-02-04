@@ -8,4 +8,4 @@
 
 import Foundation
 
-import MyFramework
+import RNYandexPayment

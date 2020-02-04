@@ -30,7 +30,7 @@ target 'example' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # todo: change to node_modules path in real application
-  pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
+  pod 'RNYandexPayment', :path => '../../ios/RNYandexPayment.podspec'
 
   pod 'YandexCheckoutPayments',
     :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',

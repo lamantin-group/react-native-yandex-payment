@@ -88,7 +88,7 @@ target 'MyApp' do
 
     # ... other dependencies
 
-    pod 'MyFramework', :path => '../node_modules/react-native-yandex-payment/ios/MyFramework.podspec'
+    pod 'RNYandexPayment', :path => '../node_modules/react-native-yandex-payment/ios/RNYandexPayment.podspec'
 
     pod 'YandexCheckoutPayments',
         :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
