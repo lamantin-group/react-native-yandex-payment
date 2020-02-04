@@ -22,11 +22,7 @@ import SheetMenu from 'react-native-sheetmenu'
 import YandexPayment, { Currency, PaymentType } from 'react-native-yandex-payment'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { SwitchView } from './SwitchView'
-
-const config = {
-  id: 'PUT HERE YOUR SHOP_ID',
-  token: 'PUT HERE YOUR SHOP_TOKEN',
-}
+import { config } from './config'
 
 const App = () => {
   const [currency, setCurrency] = useState<Currency>('RUB')
