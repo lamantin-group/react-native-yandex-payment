@@ -13,4 +13,5 @@ struct Shop {
     let token: String
     let name: String
     let description: String
+    let returnUrl: String
 }
