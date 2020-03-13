@@ -19,6 +19,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
     constants["SHOP_TOKEN"] = SHOP_TOKEN
     constants["SHOP_NAME"] = SHOP_NAME
     constants["SHOP_DESCRIPTION"] = SHOP_DESCRIPTION
+    constants["SHOP_RETURN_URL"] = SHOP_RETURN_URL
     return constants
   }
 
@@ -28,7 +29,8 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
       map.getString(SHOP_ID)!!,
       map.getString(SHOP_TOKEN)!!,
       map.getString(SHOP_NAME)!!,
-      map.getString(SHOP_DESCRIPTION)!!
+      map.getString(SHOP_DESCRIPTION)!!,
+      map.getString(SHOP_RETURN_URL)!!
     )
     val payment = Payment(
       amount = map.getDouble(PAYMENT_AMOUNT),
@@ -51,7 +53,9 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
       shop.description,
       shop.token,
       shop.id,
-      payment.types
+      payment.types,
+      null,
+      shop.returnUrl
     )
 
     val testParameters = TestParameters(true, false)
@@ -79,6 +83,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
     private const val SHOP_TOKEN = "SHOP_TOKEN"
     private const val SHOP_NAME = "SHOP_NAME"
     private const val SHOP_DESCRIPTION = "SHOP_DESCRIPTION"
+    private const val SHOP_RETURN_URL = "SHOP_RETURN_URL"
 
     private const val PAYMENT_AMOUNT = "PAYMENT_AMOUNT"
     private const val PAYMENT_CURRENCY = "PAYMENT_CURRENCY"
