@@ -8,5 +8,6 @@ data class Shop(
   val id: String,
   val token: String,
   val name: String,
-  val description: String
+  val description: String,
+  val returnUrl: String? = null
 )
