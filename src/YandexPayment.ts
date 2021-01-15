@@ -17,12 +17,12 @@ export class YandexPayment {
           SHOP_ID: shop.id,
           SHOP_TOKEN: shop.token,
           SHOP_NAME: shop.name,
-          SHOP_APPLEPAY_MERCHANT_IDENTIFIER: shop.applePayMerchantIdentifier || '',
           SHOP_RETURN_URL: shop.returnUrl ? shop.returnUrl : 'https://custom.redirect.url/',
           SHOP_DESCRIPTION: shop.description,
           PAYMENT_AMOUNT: payment.amount,
           PAYMENT_CURRENCY: payment.currency,
           PAYMENT_TYPES_ARRAY: payment.types || [],
+          PAYMENT_SAVE_TYPE: payment.savePaymentMethod || "OFF"
         },
         (token: string, type: string, error: any) => {
           if (token && type) {

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class InlineActivityResult {
 
-    private static final String TAG = "ACTIVITY_RESULT_FRAGMENT_WEEEEE";
+    private static final String TAG = "ACTIVITY_RESULT_FRAGMENT_YOO_KASSA";
 
     private final Reference<FragmentActivity> activityReference;
 

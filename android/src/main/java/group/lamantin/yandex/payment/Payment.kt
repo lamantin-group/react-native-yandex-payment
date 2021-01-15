@@ -1,6 +1,7 @@
 package group.lamantin.yandex.payment
 
-import ru.yandex.money.android.sdk.PaymentMethodType
+import ru.yoo.sdk.kassa.payments.PaymentMethodType
+import ru.yoo.sdk.kassa.payments.SavePaymentMethod
 
 /**
  * @since 2019
@@ -9,5 +10,6 @@ import ru.yandex.money.android.sdk.PaymentMethodType
 data class Payment(
   val amount: Double,
   val currency: String,
-  val types: Set<PaymentMethodType>
+  val types: Set<PaymentMethodType>,
+  val savePaymentMethod: SavePaymentMethod,
 )
