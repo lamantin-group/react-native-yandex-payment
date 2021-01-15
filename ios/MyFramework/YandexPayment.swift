@@ -8,8 +8,8 @@
 
 import Foundation
 
-import YandexCheckoutPayments
-import YandexCheckoutPaymentsApi
+import YooKassaPayments
+import YooKassaPaymentsApi
 
 
 @objc(YandexPayment)
@@ -24,7 +24,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
                 return "PAY"
             case .bankCard:
                 return "BANK_CARD"
-            case .yandexMoney:
+            case .yooMoney:
                 return "YANDEX_MONEY"
             case .sberbank:
                 return "SBERBANK"
@@ -45,7 +45,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         let array: [String] = nsArray.compactMap({ ($0 as! String) })
         for type in array {
             if type == "YANDEX_MONEY" {
-                set.insert(.yandexMoney)
+                set.insert(.yooMoney)
             } else if type == "GOOGLE_PAY" {
                 set.insert(.applePay)
             } else if type == "BANK_CARD" {
@@ -60,7 +60,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         }
         
         if set.isEmpty {
-            return [.bankCard, .yandexMoney, .applePay, .sberbank]
+            return [.bankCard, .yooMoney, .applePay, .sberbank]
         } else {
             return set
         }
@@ -81,6 +81,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             description: map["SHOP_DESCRIPTION"] as! String,
             applePayMerchantIdentifier: map["SHOP_APPLEPAY_MERCHANT_IDENTIFIER"] as! String,
             returnUrl: map["SHOP_RETURN_URL"] as! String
+
         )
         
         let payment = Payment(
@@ -96,7 +97,8 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             amount: Amount(value: Decimal(payment.amount), currency: payment.currency),
             tokenizationSettings: TokenizationSettings(paymentMethodTypes: PaymentMethodTypes(rawValue: payment.types)),
             applePayMerchantIdentifier: shop.applePayMerchantIdentifier,
-            returnUrl: shop.returnUrl
+            returnUrl: shop.returnUrl,
+            savePaymentMethod: .on
         )
         let inputData: TokenizationFlow = .tokenization(moduleInputData)
         viewController = TokenizationAssembly.makeModule(
@@ -143,7 +145,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         }
     }
     
-    func didFinish(on module: TokenizationModuleInput, with error: YandexCheckoutPaymentsError?) {
+    func didFinish(on module: TokenizationModuleInput, with error: YooKassaPaymentsError?) {
         DispatchQueue.main.async {
             self.viewController?.dismiss(animated: true)
         }

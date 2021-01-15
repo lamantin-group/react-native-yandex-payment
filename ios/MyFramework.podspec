@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "MyFramework"
   spec.dependency 'React'
-  spec.dependency 'YandexCheckoutPayments'
+  spec.dependency 'YooKassaPayments'
   # spec.public_header_files = "Classes/**/*.h"
 
 end

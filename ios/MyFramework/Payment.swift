@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import YandexCheckoutPayments
-import YandexCheckoutPaymentsApi
+import YooKassaPayments
+import YooKassaPaymentsApi
 
 struct Payment {
     let amount: Double
