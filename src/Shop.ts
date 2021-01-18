@@ -3,5 +3,5 @@ export interface Shop {
   token: string
   name: string
   description: string
-  returnUrl: string
+  returnUrl?: string
 }
