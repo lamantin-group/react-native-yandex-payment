@@ -51,6 +51,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: "../../../android/app/libs", include: ["*.aar"])
     implementation fileTree(dir: "libs", include: ["*.aar"])
     implementation 'ru.yoo.sdk.kassa.payments:yookassa-android-sdk:5.0.3'
     implementation "ru.yoo.sdk.auth:auth:1.0.39"
