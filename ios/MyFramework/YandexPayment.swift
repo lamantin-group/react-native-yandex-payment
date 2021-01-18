@@ -1,11 +1,3 @@
-//
-//  YandexPayment.swift
-//  MyFramework
-//
-//  Created by Антон Власов on 03/09/2019.
-//  Copyright © 2019 whalemare. All rights reserved.
-//
-
 import Foundation
 
 import YooKassaPayments
@@ -20,22 +12,16 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     
     func paymentTypeToString(paymentType: PaymentMethodType) -> String {
         switch paymentType {
-            case .applePay:
-                return "PAY"
             case .bankCard:
                 return "BANK_CARD"
             case .yooMoney:
-                return "YANDEX_MONEY"
+                return "YOO_MONEY"
             case .sberbank:
                 return "SBERBANK"
-            case .cash:
-                return "CASH"
-            case .qiwi:
-                return "QIWI"
-            case .alfabank:
-                return "ALFABANK"
-            case .webmoney:
-                return "WEBMONEY"
+            case .applePay:
+                return "PAY"
+            default:
+              return "BANK_CARD"
         }
     }
     
@@ -44,16 +30,12 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
 
         let array: [String] = nsArray.compactMap({ ($0 as! String) })
         for type in array {
-            if type == "YANDEX_MONEY" {
+            if type == "YOO_MONEY" {
                 set.insert(.yooMoney)
-            } else if type == "GOOGLE_PAY" {
-                set.insert(.applePay)
             } else if type == "BANK_CARD" {
                 set.insert(.bankCard)
             } else if type == "SBERBANK" {
                 set.insert(.sberbank)
-            } else if type == "APPLY_PAY" {
-                set.insert(.applePay)
             } else if type == "PAY" {
                 set.insert(.applePay)
             }
@@ -66,6 +48,19 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         }
     }
     
+    func stringToSavePaymentType(string: String) -> YooKassaPayments.SavePaymentMethod {
+        switch string {
+            case "ON":
+              return .on
+            case "OFF":
+              return .off
+            case "USER_SELECTS":
+              return .userSelects
+            default:
+              return .off
+        }
+    }
+  
     func stringToCurrency(string: String) -> Currency {
         return Currency(rawValue: string)!
     }
@@ -79,15 +74,14 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             token: map["SHOP_TOKEN"] as! String,
             name: map["SHOP_NAME"] as! String,
             description: map["SHOP_DESCRIPTION"] as! String,
-            applePayMerchantIdentifier: map["SHOP_APPLEPAY_MERCHANT_IDENTIFIER"] as! String,
             returnUrl: map["SHOP_RETURN_URL"] as! String
-
         )
         
         let payment = Payment(
             amount: map["PAYMENT_AMOUNT"] as! Double,
             currency: stringToCurrency(string: map["PAYMENT_CURRENCY"] as! String),
-            types: arrayToSetPaymentTypes(nsArray: (map["PAYMENT_TYPES_ARRAY"] as! NSArray))
+            types: arrayToSetPaymentTypes(nsArray: (map["PAYMENT_TYPES_ARRAY"] as! NSArray)),
+            savePaymentMethod: stringToSavePaymentType(string: map["PAYMENT_SAVE_TYPE"] as! String)
         )
         
         let moduleInputData = TokenizationModuleInputData(
@@ -96,9 +90,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
             purchaseDescription: shop.description,
             amount: Amount(value: Decimal(payment.amount), currency: payment.currency),
             tokenizationSettings: TokenizationSettings(paymentMethodTypes: PaymentMethodTypes(rawValue: payment.types)),
-            applePayMerchantIdentifier: shop.applePayMerchantIdentifier,
-            returnUrl: shop.returnUrl,
-            savePaymentMethod: .on
+            savePaymentMethod: payment.savePaymentMethod
         )
         let inputData: TokenizationFlow = .tokenization(moduleInputData)
         viewController = TokenizationAssembly.makeModule(

@@ -1,11 +1,3 @@
-//
-//  Shop.swift
-//  MyFramework
-//
-//  Created by Антон Власов on 04/09/2019.
-//  Copyright © 2019 whalemare. All rights reserved.
-//
-
 import Foundation
 
 struct Shop {
@@ -13,6 +5,5 @@ struct Shop {
     let token: String
     let name: String
     let description: String
-    let applePayMerchantIdentifier: String
     let returnUrl: String
 }
