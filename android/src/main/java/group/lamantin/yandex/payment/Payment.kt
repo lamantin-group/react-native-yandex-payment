@@ -12,4 +12,5 @@ data class Payment(
   val currency: String,
   val types: Set<PaymentMethodType>,
   val savePaymentMethod: SavePaymentMethod,
+  val yooKassaClientId: String
 )

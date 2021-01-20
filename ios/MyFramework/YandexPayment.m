@@ -11,6 +11,13 @@
 @interface RCT_EXTERN_MODULE(YandexPayment, RCTViewManager)
 
 RCT_EXTERN_METHOD(attach: (NSDictionary *) map
-                  callbacker: (RCTResponseSenderBlock) callback)
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(close)
+
+RCT_EXTERN_METHOD(show3ds: (NSString *) requestUrl
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 
 @end
