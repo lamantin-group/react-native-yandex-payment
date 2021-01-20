@@ -24,61 +24,91 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
     }
 
     @ReactMethod
-    fun attach(map: ReadableMap, callback: Callback) {
-        val shop = Shop(
-                map.getString(SHOP_ID)!!,
-                map.getString(SHOP_TOKEN)!!,
-                map.getString(SHOP_NAME)!!,
-                map.getString(SHOP_DESCRIPTION)!!,
-                map.getString(SHOP_RETURN_URL)!!
-        )
-        val payment = Payment(
-                amount = map.getDouble(PAYMENT_AMOUNT),
-                currency = map.getString(PAYMENT_CURRENCY)!!,
-                types = map.getArray(PAYMENT_TYPES_ARRAY)!!.toSetPayment(),
-                savePaymentMethod = map.getString(PAYMENT_SAVE_TYPE)!!.toSavePaymentMethod()
-        )
-        startTokenizer(shop, payment,
-                { token: String, type: PaymentMethodType -> callback.invoke(token, type.name()) },
-                { callback.invoke(null, null) }
-        )
+    fun attach(map: ReadableMap, promise: Promise) {
+        try {
+            val shop = mapShop(map)
+            val payment = mapPayment(map)
+
+            val paymentParameters = PaymentParameters(
+                    Amount(BigDecimal(payment.amount), Currency.getInstance(payment.currency)),
+                    shop.name,
+                    shop.description,
+                    shop.token,
+                    shop.id,
+                    payment.savePaymentMethod,
+                    payment.types,
+                    null,
+                    null,
+                    null,
+                    GooglePayParameters(),
+                    payment.yooKassaClientId,
+            )
+
+            // expose to JS
+            val testParameters = TestParameters(true, false)
+            val intent = Checkout.createTokenizeIntent(currentActivity!!,
+                    paymentParameters, testParameters
+            )
+            InlineActivityResult.startForResult(
+                    currentActivity!!,
+                    intent,
+                    object : ActivityResultListener {
+                        override fun onSuccess(result: Result) {
+                            val tokenizationResult: TokenizationResult = Checkout.createTokenizationResult(result.data!!)
+                            val result = WritableNativeArray()
+                            result.pushString(tokenizationResult.paymentToken)
+                            result.pushString(tokenizationResult.paymentMethodType.toString())
+                            promise.resolve(result)
+                        }
+
+                        override fun onFailed(result: Result) {
+                            promise.reject(RESULT_CANCELED, RuntimeException("Token canceled"))
+                        }
+                    })
+
+        } catch (error: Exception) {
+            promise.reject(error)
+        }
     }
 
-
-    private fun startTokenizer(shop: Shop,
-                               payment: Payment,
-                               onSuccessPayment: (token: String, paymentMethodType: PaymentMethodType) -> Unit,
-                               onError: (throwable: Throwable) -> Unit) {
-        //TODO: add clientId (String) - идентификатор приложения для sdk авторизации ru.yoo.sdk.auth, см. Регистрация приложения для платежей из кошелька.
-        val paymentParameters = PaymentParameters(
-                Amount(BigDecimal(payment.amount), Currency.getInstance(payment.currency)),
-                shop.name,
-                shop.description,
-                shop.token,
-                shop.id,
-                payment.savePaymentMethod,
-                payment.types
-        )
-
-        val testParameters = TestParameters(true, false)
-
-        val intent = Checkout.createTokenizeIntent(currentActivity!!,
-                paymentParameters, testParameters
-        )
-        InlineActivityResult.startForResult(
-                currentActivity as FragmentActivity,
-                intent, object : ActivityResultListener {
-            override fun onSuccess(result: Result) {
-                val tokenizationResult: TokenizationResult = Checkout.createTokenizationResult(result.data!!)
-                onSuccessPayment.invoke(tokenizationResult.paymentToken, tokenizationResult.paymentMethodType)
-            }
-
-            override fun onFailed(result: Result?) {
-                onError.invoke(RuntimeException("Token canceled"))
-            }
-        })
+    @ReactMethod
+    fun close() {
+        // dummy method, just for compatibility with ios
     }
 
+    @ReactMethod
+    fun show3ds(requestUrl: String, promise: Promise) {
+        try {
+            val intent = Checkout.create3dsIntent(currentActivity!!, requestUrl)
+
+            InlineActivityResult.startForResult(
+                    currentActivity as FragmentActivity,
+                    intent,
+                    object : ActivityResultListener {
+                        override fun onSuccess(result: Result) {
+                            promise.resolve(RESULT_OK)
+                        }
+
+                        override fun onFailed(result: Result) {
+                            val map = WritableNativeMap()
+                            if (result.data != null) {
+                                // WebViewClient.ERROR_* или Checkout.ERROR_NOT_HTTPS_URL
+                                result.data?.getIntExtra(Checkout.EXTRA_ERROR_CODE, 0)?.let { map.putInt(EXTRA_ERROR_CODE, it) }
+                                map.putString(EXTRA_ERROR_DESCRIPTION, result.data?.getStringExtra(Checkout.EXTRA_ERROR_DESCRIPTION))
+                                map.putString(EXTRA_ERROR_FAILING_URL, result.data?.getStringExtra(Checkout.EXTRA_ERROR_FAILING_URL))
+                            }
+
+                            if (result.resultCode == Checkout.RESULT_ERROR) {
+                                promise.reject(RESULT_ERROR, map)
+                            } else {
+                                promise.reject(RESULT_3DS_CLOSED, map)
+                            }
+                        }
+                    })
+        } catch (err: Exception) {
+            promise.reject(err)
+        }
+    }
 
     companion object {
         private const val SHOP_ID = "SHOP_ID"
@@ -91,6 +121,36 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
         private const val PAYMENT_CURRENCY = "PAYMENT_CURRENCY"
         private const val PAYMENT_TYPES_ARRAY = "PAYMENT_TYPES_ARRAY"
         private const val PAYMENT_SAVE_TYPE = "PAYMENT_SAVE_TYPE"
+        private const val PAYMENT_YOO_MONEY_CLIENT_ID = "PAYMENT_YOO_MONEY_CLIENT_ID"
+
+        private const val EXTRA_ERROR_CODE = "EXTRA_ERROR_CODE"
+        private const val EXTRA_ERROR_DESCRIPTION = "EXTRA_ERROR_DESCRIPTION"
+        private const val EXTRA_ERROR_FAILING_URL = "EXTRA_ERROR_FAILING_URL"
+
+        private const val RESULT_3DS_CLOSED = "RESULT_3DS_CLOSED"
+        private const val RESULT_ERROR = "RESULT_ERROR"
+        private const val RESULT_CANCELED = "RESULT_CANCELED"
+        private const val RESULT_OK = "RESULT_OK"
+    }
+
+    fun mapShop(map: ReadableMap): Shop {
+        return Shop(
+                map.getString(SHOP_ID)!!,
+                map.getString(SHOP_TOKEN)!!,
+                map.getString(SHOP_NAME)!!,
+                map.getString(SHOP_DESCRIPTION)!!,
+                map.getString(SHOP_RETURN_URL)!!
+        )
+    }
+
+    fun mapPayment(map: ReadableMap): Payment {
+        return Payment(
+                amount = map.getDouble(PAYMENT_AMOUNT),
+                currency = map.getString(PAYMENT_CURRENCY)!!,
+                types = map.getArray(PAYMENT_TYPES_ARRAY)!!.toSetPayment(),
+                savePaymentMethod = map.getString(PAYMENT_SAVE_TYPE)!!.toSavePaymentMethod(),
+                yooKassaClientId = map.getString(PAYMENT_YOO_MONEY_CLIENT_ID)!!
+        )
     }
 
     fun ReadableArray.toSetPayment(): Set<PaymentMethodType> {
