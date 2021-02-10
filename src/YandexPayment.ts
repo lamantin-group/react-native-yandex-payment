@@ -22,13 +22,13 @@ export class YandexPayment {
       PAYMENT_TYPES_ARRAY: payment.types || [],
       PAYMENT_SAVE_TYPE: payment.savePaymentMethod || "OFF",
       PAYMENT_YOO_MONEY_CLIENT_ID: payment.yooKassaClientId
-    }).then((arr) => ({
+    }).then((arr: string[]) => ({
       token: arr[0],
       type: arr[1]
     })) 
   }
 
-  static show3ds(requestUrl: string): Promise{
+  static show3ds(requestUrl: string): Promise<string>{
     return YandexPaymentNative.show3ds(requestUrl)
   }
 
