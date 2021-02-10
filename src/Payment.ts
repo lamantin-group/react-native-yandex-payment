@@ -13,4 +13,6 @@ export interface Payment {
   types: PaymentType[]
 
   savePaymentMethod: SavePaymentMethodType
+  
+  yooKassaClientId: string
 }
