@@ -30,7 +30,6 @@ export class YandexPayment {
 
   static show3ds(requestUrl: string): Promise<string>{
     return YandexPaymentNative.show3ds(requestUrl).then((result: string) => {
-      console.log({result})
       if(result !== "RESULT_OK") {
         throw new Error("3ds cancelled");
       }
