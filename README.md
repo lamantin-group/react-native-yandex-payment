@@ -84,21 +84,16 @@ iOS
 
 Update your `ios/Podfile`
 ```ruby
-target 'MyApp' do
+platform :ios, '10.0'
 
+target 'MyApp' do
     # ... other dependencies
 
     pod 'MyFramework', :path => '../node_modules/react-native-yandex-payment/ios/MyFramework.podspec'
 
-    pod 'YandexCheckoutPayments',
-        :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
-        :tag => '2.2.0',
-        :modular_headers => true
-
-    pod 'YandexLoginSDK',
-        :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
-        :tag => '2.0.2',
-        :modular_headers => true
+    pod 'YooKassaPayments',
+    :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
+    :tag => '5.1.0'
 end
 
 pre_install do |installer|
@@ -121,15 +116,27 @@ Be sure, that it have Foundation import
 import Foundation
 ```
 
+### TMXProfiling and TMXProfilingConnections
+
 Create `Frameworks` directory inside `ios` folder
 ```bash
 cd ios && mkdir Frameworks
 ```
 
-Put inside `ios/Frameworks` `TrustDefender.framework` (you should receive your own TrustDefender.framework from Yandex support).
+Put TMXProfiling.framework and TMXProfilingConnections.framework inside Frameworks.
+```
+App
+├─ Pods
+└─ Frameworks
+    └─ TMXProfiling.framework
+    └─ TMXProfilingConnections.framework
+```
 
-Be sure, that TrustDefender has Header folder inside it
-![trustdefender](./.github/trustdefender.png)
+Add TMXProfiling.framework and TMXProfilingConnections.framework in `Frameworks, Libraries, and Embedded Content`
+
+TMXProfiling.framework и TMXProfilingConnections.framework должны быть добавлены как `Embed & Sign`
+
+Create new script in `Build Phases -> New Run Script Phase`, and put content from strip_framework.sh
 
 Roadmap
 =======
