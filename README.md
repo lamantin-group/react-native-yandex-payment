@@ -71,9 +71,8 @@ android {
 
 Ask on your manager next library and place it inside: 'android/app/libs'
 ```
-ThreatMetrix-Android-SDK-5.4-73.aar
+ThreatMetrix Android SDK 5.4-73.aar
 ```
-Double check naming of this file. It should be the same as decsribed above
 
 Check that your project have the same in `dependecies` block scope (*.aar, not *.jar)
 ```
