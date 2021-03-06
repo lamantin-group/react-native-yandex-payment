@@ -35,7 +35,7 @@ Install
 =======
 
 ```bash
-npm install react-native-yandex-payment --save 
+npm install react-native-yandex-payment --save
 ```
 or
 ```bash
@@ -44,16 +44,6 @@ yarn add react-native-yandex-payment
 
 Android
 -------
-
-Add Yandex repository inside `android/build.gradle`
-```groovy
-allprojects {
-    repositories {
-      ...
-      maven { url 'https://dl.bintray.com/yandex-money/maven' }    
-    }
-}
-```
 
 Enable multidex if needed in `android/app/build.gradle`
 ```diff
@@ -77,6 +67,17 @@ android {
         manifestPlaceholders = [YANDEX_CLIENT_ID: "ваш id приложения в Яндекс.Паспорте"]
     }
 }
+```
+
+Ask on your manager next library and place it inside: 'android/app/libs'
+```
+ThreatMetrix-Android-SDK-5.4-73.aar
+```
+Double check naming of this file. It should be the same as decsribed above
+
+Check that your project have the same in `dependecies` block scope (*.aar, not *.jar)
+```
+implementation fileTree(dir: "libs", include: ["*.aar"])
 ```
 
 iOS
@@ -115,7 +116,7 @@ Install pods in `ios`
 pod install
 ```
 
-Open newly generated `.xcworkspace` in XCode and create new swift file. 
+Open newly generated `.xcworkspace` in XCode and create new swift file.
 Be sure, that it have Foundation import
 ```swift
 import Foundation
