@@ -41,7 +41,7 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
                     null,
                     null,
                     GooglePayParameters(),
-                    payment.yooKassaClientId,
+                    payment.yooKassaClientId
             )
 
             // expose to JS
