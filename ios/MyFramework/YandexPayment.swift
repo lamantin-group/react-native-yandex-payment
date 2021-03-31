@@ -95,8 +95,8 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     }
     
     func tokenizationModule(_ module: TokenizationModuleInput,
-                            didTokenize token: Tokens,
-                            paymentMethodType: PaymentMethodType) {
+                            didTokenize token: YooKassaPayments.Tokens,
+                            paymentMethodType: YooKassaPayments.PaymentMethodType) {
         if let resolver = self.storedResolver {
             resolver([
                 token.paymentToken,
@@ -120,7 +120,7 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     }
     
 //  #pragma mark - Helpers
-    func paymentTypeToString(paymentType: PaymentMethodType) -> String {
+    func paymentTypeToString(paymentType: YooKassaPayments.PaymentMethodType) -> String {
         switch paymentType {
             case .bankCard:
                 return "BANK_CARD"
@@ -135,8 +135,8 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
         }
     }
     
-    func arrayToSetPaymentTypes(nsArray: NSArray) -> Set<PaymentMethodType> {
-        var set: Set<PaymentMethodType> = []
+    func arrayToSetPaymentTypes(nsArray: NSArray) -> Set<YooKassaPayments.PaymentMethodType> {
+        var set: Set<YooKassaPayments.PaymentMethodType> = []
 
         let array: [String] = nsArray.compactMap({ ($0 as! String) })
         for type in array {
