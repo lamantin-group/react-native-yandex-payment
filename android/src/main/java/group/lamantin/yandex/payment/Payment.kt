@@ -1,7 +1,7 @@
 package group.lamantin.yandex.payment
 
-import ru.yoo.sdk.kassa.payments.PaymentMethodType
-import ru.yoo.sdk.kassa.payments.SavePaymentMethod
+import ru.yoo.sdk.kassa.payments.checkoutParameters.PaymentMethodType
+import ru.yoo.sdk.kassa.payments.checkoutParameters.SavePaymentMethod
 
 /**
  * @since 2019
