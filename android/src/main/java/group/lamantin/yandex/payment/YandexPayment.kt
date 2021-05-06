@@ -5,8 +5,8 @@ import com.facebook.react.bridge.*
 import group.lamantin.yandex.payment.result.ActivityResultListener
 import group.lamantin.yandex.payment.result.InlineActivityResult
 import group.lamantin.yandex.payment.result.Result
-import ru.yoo.sdk.kassa.payments.*
-import ru.yoo.sdk.kassa.payments.checkoutParameters.*
+import ru.yoomoney.sdk.kassa.payments.*
+import ru.yoomoney.sdk.kassa.payments.checkoutParameters.*
 import java.math.BigDecimal
 import java.util.*
 
