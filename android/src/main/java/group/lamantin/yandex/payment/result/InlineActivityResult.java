@@ -5,8 +5,6 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -15,14 +13,12 @@ import java.util.List;
 
 public class InlineActivityResult {
 
-    private static final String TAG = "ACTIVITY_RESULT_FRAGMENT_WEEEEE";
+    private static final String TAG = "ACTIVITY_RESULT_FRAGMENT_YOO_KASSA";
 
-    private final Reference<FragmentActivity> activityReference;
+    private final Reference<Activity> activityReference;
 
     //region callbacks
     private final List<ActivityResultListener> responseListeners = new ArrayList<>();
-    private final List<SuccessCallback> successCallbacks = new ArrayList<>();
-    private final List<FailCallback> failCallbacks = new ArrayList<>();
 
     //the listener we will give to the fragment
     private final TransparentActivity.ActivityResultListener listener = new TransparentActivity.ActivityResultListener() {
@@ -33,27 +29,11 @@ public class InlineActivityResult {
     };
     //endregion
 
-    public static InlineActivityResult startForResult(final FragmentActivity activity, @Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
+    public static InlineActivityResult startForResult(final Activity activity, @Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
         return new InlineActivityResult(activity).startForResult(intent, listener);
     }
 
-    public static InlineActivityResult startForResult(final Fragment fragment, @Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
-        return new InlineActivityResult(fragment).startForResult(intent, listener);
-    }
-
-    public InlineActivityResult(@Nullable final FragmentActivity activity) {
-        if (activity != null) {
-            this.activityReference = new WeakReference<>(activity);
-        } else {
-            this.activityReference = new WeakReference<>(null);
-        }
-    }
-
-    public InlineActivityResult(@Nullable final Fragment fragment) {
-        FragmentActivity activity = null;
-        if (fragment != null) {
-            activity = fragment.getActivity();
-        }
+    public InlineActivityResult(@Nullable final Activity activity) {
         if (activity != null) {
             this.activityReference = new WeakReference<>(activity);
         } else {
@@ -64,27 +44,14 @@ public class InlineActivityResult {
     private void onReceivedActivityResult(int requestCode, int resultCode, @Nullable final Intent data) {
         final Result result = new Result(this, requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            for (SuccessCallback callback : successCallbacks) {
-                callback.onSuccess(result);
-            }
             for (ActivityResultListener listener : responseListeners) {
                 listener.onSuccess(result);
             }
-        } else if (resultCode == Activity.RESULT_CANCELED) {
-            for (FailCallback callback : failCallbacks) {
-                callback.onFailed(result);
-            }
+        } else {
             for (ActivityResultListener listener : responseListeners) {
                 listener.onFailed(result);
             }
         }
-    }
-
-    public InlineActivityResult startForResult(@Nullable final Intent intent) {
-        if (intent != null) {
-            this.start(intent);
-        }
-        return this;
     }
 
     public InlineActivityResult startForResult(@Nullable final Intent intent, @Nullable final ActivityResultListener listener) {
@@ -95,45 +62,17 @@ public class InlineActivityResult {
         return this;
     }
 
-    public InlineActivityResult onSuccess(@Nullable final SuccessCallback callback) {
-        if (callback != null) {
-            successCallbacks.add(callback);
-        }
-        return this;
-    }
-
-    public InlineActivityResult onFail(@Nullable final FailCallback callback) {
-        if (callback != null) {
-            failCallbacks.add(callback);
-        }
-        return this;
-    }
-
     private void start(@NonNull final Intent intent) {
-        final FragmentActivity activity = activityReference.get();
+        final Activity activity = activityReference.get();
         if (activity == null || activity.isFinishing()) {
             return;
         }
 
-//        final ActivityResultFragment oldFragment = (ActivityResultFragment) activity
-//            .getSupportFragmentManager()
-//            .findFragmentByTag(TAG);
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 activity.startActivity(TransparentActivity.intentForResult(activity, intent, listener));
             }
         });
-//        final ActivityResultFragment fragment = ActivityResultFragment.newInstance(intent);
-//        fragment.setListener(listener);
-//        activity.runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                activity.getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .add(fragment, TAG)
-//                    .commitNowAllowingStateLoss();
-//            }
-//        });
     }
 }

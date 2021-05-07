@@ -1,7 +1,15 @@
-platform :ios, '10.0'
-# use_modular_headers!
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/yoomoney-tech/cocoa-pod-specs.git'
 plugin 'cocoapods-fix-react-native'
+plugin 'cocoapods-user-defined-build-types',  {
+  verbose: true
+}
+enable_user_defined_build_types!
+
+install! 'cocoapods', :disable_input_output_paths => true
+
+platform :ios, '10.0'
 
 target 'example' do
   # Pods for example
@@ -29,25 +37,13 @@ target 'example' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  # todo: change to node_modules path in real application
-  pod 'MyFramework', :path => '../../ios/MyFramework.podspec'
+  # Yandex payment
+  pod 'YooKassaPayments', 
+  :build_type => :dynamic_framework,
+  :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
+  :tag => '5.2.0'
 
-  pod 'YandexCheckoutPayments',
-    :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
-    :tag => '2.2.0',
-    :modular_headers => true
-
-  pod 'YandexLoginSDK',
-    :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
-    :tag => '2.0.2',
-    :modular_headers => true
-
-  target 'exampleTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  # use_native_modules!
+  use_native_modules!
 end
 
 target 'example-tvOS' do

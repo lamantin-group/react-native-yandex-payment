@@ -24,6 +24,7 @@ class TransparentActivity: AppCompatActivity() {
     super.onActivityResult(requestCode, resultCode, data)
 
     if (requestCode == REQUEST_CODE) {
+      RESULT_OK
       listener!!.onActivityResult(requestCode, resultCode, data)
       this.finish()
     }

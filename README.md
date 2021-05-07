@@ -3,9 +3,9 @@ What is it
 
 Library for implement Yandex Checkout functionality on React Native environment.
 
-Android library: [2.3.0](https://github.com/yandex-money/yandex-checkout-android-sdk)
+Android library: [5.1.2](https://github.com/yandex-money/yandex-checkout-android-sdk)
 
-iOS library: [2.2.0](https://github.com/yandex-money/yandex-checkout-payments-swift)
+iOS library: [5.2.0](https://github.com/yandex-money/yandex-checkout-payments-swift)
 
 ![v1](./.github/v1.gif)
 
@@ -88,25 +88,12 @@ target 'MyApp' do
 
     # ... other dependencies
 
-    pod 'MyFramework', :path => '../node_modules/react-native-yandex-payment/ios/MyFramework.podspec'
+  # Yandex payment
+  pod 'YooKassaPayments', 
+  :build_type => :dynamic_framework,
+  :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
+  :tag => '5.2.0'
 
-    pod 'YandexCheckoutPayments',
-        :git => 'https://github.com/yandex-money/yandex-checkout-payments-swift.git',
-        :tag => '2.2.0',
-        :modular_headers => true
-
-    pod 'YandexLoginSDK',
-        :git => 'https://github.com/yandexmobile/yandex-login-sdk-ios',
-        :tag => '2.0.2',
-        :modular_headers => true
-end
-
-pre_install do |installer|
-	installer.analysis_result.specifications.each do |s|
-        if s.name == 'When'
-            s.swift_version = '4.2'
-        end
-    end
 end
 ```
 

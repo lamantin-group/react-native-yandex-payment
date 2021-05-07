@@ -3,7 +3,7 @@
           package="group.lamantin.yandex.payment">
 
   <application>
-    <activity
+    <activity android:label=""
       android:name=".result.TransparentActivity"
       android:theme="@style/Theme.Transparent"
       />

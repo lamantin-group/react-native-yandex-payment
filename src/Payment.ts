@@ -1,5 +1,5 @@
-// todo: change GOOGLE_PAY to PAY that indicates APPLE_PAY and GOOGLE_PAY
-type PaymentType = 'YANDEX_MONEY' | 'GOOGLE_PAY' | 'BANK_CARD' | 'SBERBANK' | 'PAY'
+type PaymentType = 'PAY' | 'BANK_CARD' | 'SBERBANK' | 'YOO_MONEY'
+type SavePaymentMethodType = 'ON' | 'OFF' | 'USER_SELECTS'
 type Currency = 'RUB' | 'USD' | 'EUR'
 
 export interface Payment {
@@ -11,4 +11,8 @@ export interface Payment {
   currency: Currency
 
   types: PaymentType[]
+
+  savePaymentMethod: SavePaymentMethodType
+  
+  yooKassaClientId: string
 }
