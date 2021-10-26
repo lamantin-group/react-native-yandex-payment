@@ -6,7 +6,6 @@ import YooKassaPaymentsApi
 
 @objc(YandexPayment)
 class YandexPayment: RCTViewManager, TokenizationModuleOutput {
-    
     var storedResolver: RCTPromiseResolveBlock?
     var storedRejecter: RCTPromiseRejectBlock?
     var viewController: (UIViewController & TokenizationModuleInput)?
@@ -84,6 +83,17 @@ class YandexPayment: RCTViewManager, TokenizationModuleOutput {
     
     // TokenizationModuleOutput interface callbacks
     func didSuccessfullyPassedCardSec(on module: TokenizationModuleInput) {
+        DispatchQueue.main.async {
+            if let resolver = self.storedResolver {
+                resolver("RESULT_OK")
+            }
+            self.storedResolver = nil
+            self.storedRejecter = nil
+            self.viewController?.dismiss(animated: true)
+        }
+    }
+    
+    func didSuccessfullyConfirmation(paymentMethodType: YooKassaPayments.PaymentMethodType) {
         DispatchQueue.main.async {
             if let resolver = self.storedResolver {
                 resolver("RESULT_OK")
