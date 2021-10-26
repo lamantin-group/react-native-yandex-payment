@@ -158,10 +158,10 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
         val set = mutableSetOf<PaymentMethodType>()
         (0 until this.size()).forEach { index ->
             when (this.getString(index)) {
-                PaymentMethodType.BANK_CARD.name() -> set.add(PaymentMethodType.BANK_CARD)
-                PaymentMethodType.YOO_MONEY.name() -> set.add(PaymentMethodType.YOO_MONEY)
-                PaymentMethodType.SBERBANK.name() -> set.add(PaymentMethodType.SBERBANK)
-                PaymentMethodType.GOOGLE_PAY.name(), "PAY" -> set.add(PaymentMethodType.GOOGLE_PAY)
+                PaymentMethodType.BANK_CARD.name -> set.add(PaymentMethodType.BANK_CARD)
+                PaymentMethodType.YOO_MONEY.name -> set.add(PaymentMethodType.YOO_MONEY)
+                PaymentMethodType.SBERBANK.name -> set.add(PaymentMethodType.SBERBANK)
+                PaymentMethodType.GOOGLE_PAY.name, "PAY" -> set.add(PaymentMethodType.GOOGLE_PAY)
             }
         }
         if (set.isEmpty()) {
@@ -172,9 +172,9 @@ class YandexPayment(reactContext: ReactApplicationContext) : ReactContextBaseJav
 
     fun String.toSavePaymentMethod(): SavePaymentMethod {
         when (this) {
-            SavePaymentMethod.ON.name() -> return SavePaymentMethod.ON
-            SavePaymentMethod.OFF.name() -> return SavePaymentMethod.OFF
-            SavePaymentMethod.USER_SELECTS.name() -> return SavePaymentMethod.USER_SELECTS
+            SavePaymentMethod.ON.name -> return SavePaymentMethod.ON
+            SavePaymentMethod.OFF.name -> return SavePaymentMethod.OFF
+            SavePaymentMethod.USER_SELECTS.name -> return SavePaymentMethod.USER_SELECTS
             else -> return SavePaymentMethod.OFF
         }
     }
