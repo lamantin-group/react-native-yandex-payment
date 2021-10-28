@@ -10,31 +10,33 @@ export class YandexPayment {
    * Show YandexCheckout screen and retrieve payment token
    * @param shop props of your shop
    */
-  static async show(shop: Shop, payment: Payment): Promise<PaymentToken> {
-    return new Promise(async (resolve, reject) => {
-      YandexPaymentNative.attach(
-        {
-          SHOP_ID: shop.id,
-          SHOP_TOKEN: shop.token,
-          SHOP_NAME: shop.name,
-          SHOP_APPLEPAY_MERCHANT_IDENTIFIER: shop.applePayMerchantIdentifier || '',
-          SHOP_RETURN_URL: shop.returnUrl ? shop.returnUrl : 'https://custom.redirect.url/',
-          SHOP_DESCRIPTION: shop.description,
-          PAYMENT_AMOUNT: payment.amount,
-          PAYMENT_CURRENCY: payment.currency,
-          PAYMENT_TYPES_ARRAY: payment.types || [],
-        },
-        (token: string, type: string, error: any) => {
-          if (token && type) {
-            resolve({
-              token: token,
-              type: type,
-            })
-          } else if (error) {
-            reject(error)
-          }
-        }
-      )
+  static show(shop: Shop, payment: Payment): Promise<PaymentToken> {
+    return  YandexPaymentNative.attach({
+      SHOP_ID: shop.id,
+      SHOP_TOKEN: shop.token,
+      SHOP_NAME: shop.name,
+      SHOP_RETURN_URL: shop.returnUrl ? shop.returnUrl : 'https://custom.redirect.url/',
+      SHOP_DESCRIPTION: shop.description,
+      PAYMENT_AMOUNT: payment.amount,
+      PAYMENT_CURRENCY: payment.currency,
+      PAYMENT_TYPES_ARRAY: payment.types || [],
+      PAYMENT_SAVE_TYPE: payment.savePaymentMethod || "OFF",
+      PAYMENT_YOO_MONEY_CLIENT_ID: payment.yooKassaClientId
+    }).then((arr: string[]) => ({
+      token: arr[0],
+      type: arr[1]
+    })) 
+  }
+
+  static show3ds(requestUrl: string): Promise<string>{
+    return YandexPaymentNative.show3ds(requestUrl).then((result: string) => {
+      if(result !== "RESULT_OK") {
+        throw new Error("3ds cancelled");
+      }
     })
+  }
+
+  static close() {
+    return YandexPaymentNative.close()
   }
 }

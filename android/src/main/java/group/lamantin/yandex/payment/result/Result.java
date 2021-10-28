@@ -39,4 +39,6 @@ public class Result {
     public InlineActivityResult getInlineActivityResult() {
         return inlineActivityResult;
     }
+
+
 }

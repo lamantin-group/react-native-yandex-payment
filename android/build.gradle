@@ -3,7 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 buildscript {
-    ext.support_version = '28.0.0'
+    ext.getExtOrDefault = {name ->
+        return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['ReactNativeYandexPayment_' + name]
+    }
+
     ext.kotlin_version = '1.3.50'
     repositories {
         jcenter()
@@ -12,24 +15,27 @@ buildscript {
             name 'Google'
         }
         maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/yoomoney/maven' }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${getExtOrDefault('kotlinVersion')}")
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-        maven { url "https://jitpack.io" }
+repositories {
+    jcenter()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+    maven { url "https://jitpack.io" }
+    flatDir {
+        dirs '../../../android/app/libs'
     }
 }
+
 
 android {
     compileSdkVersion 29
@@ -46,19 +52,14 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url 'https://maven.google.com/'
-        name 'Google'
-    }
-    maven { url 'https://dl.bintray.com/yandex-money/maven' }
-}
-
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation(name:'ThreatMetrix-Android-SDK-5.4-73', ext:'aar')
+    implementation 'ru.yoomoney.sdk.kassa.payments:yookassa-android-sdk:6.4.2'
+//  as my project doesn't require yoomoney paymend method (oly card), this lib apparently isn't necessary
+//    implementation "ru.yoo.sdk.auth:auth:1.0.51"
     implementation 'com.facebook.react:react-native:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.yandex.money:checkout:2.3.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

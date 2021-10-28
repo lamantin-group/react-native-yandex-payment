@@ -3,6 +3,5 @@ export interface Shop {
   token: string
   name: string
   description: string
-  applePayMerchantIdentifier: string
-  returnUrl: string
+  returnUrl?: string
 }
